@@ -1,19 +1,7 @@
-
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "Praca_domowa_19.h"
 
-string tolowercase(string tolower)
-{
-	for (int i = 0; i < tolower.length(); ++i)
-	{
-		if (tolower[i] < 97)
-		{
-			tolower[i] = tolower[i] + 32;
-		}
-	}
 
-	return tolower;
-}
 
 void praca_domowa_19()
 {
@@ -22,31 +10,31 @@ void praca_domowa_19()
 	vector<string> names;
 	vector<int> numbers;
 
-	cout << "Podaj parê imiê-liczba np. Jan 12" << endl;
-	
+	cout << "Podaj parÃª imiÃª-liczba np. Jan 12" << endl;
+
 	while (cin >> name >> number)
 	{
-		if (tolowercase(name) == "to koniec" && number == 0)
+		if (tolowercase(name) == "tokoniec" && number == 0)
 		{
-			return;
+			break;
 		}
 
 		for (int i = 0; i < names.size(); ++i)
 		{
 			if (name == names[i])
 			{
-				//error("Imiê siê powrótzy³o"); // Drastical method
-				cout << "B³ad, imiê siê powrótzy³o" << endl;
+				//error("ImiÃª siÃª powrÃ³tzyÂ³o"); // Drastical method
+				cout << "BÂ³ad, imiÃª siÃª powrÃ³tzyÂ³o" << endl;
 				return;
 			}
 		}
 
-		if(name != " " && number != NULL)
+		if (name != " " && number != NULL)
 		{
 			names.push_back(name);
 			numbers.push_back(number);
 		}
-			
+
 
 	}
 
@@ -54,7 +42,7 @@ void praca_domowa_19()
 	{
 		cout << names[i] << "\t" << numbers[i] << endl;
 	}
-	
+
 
 
 

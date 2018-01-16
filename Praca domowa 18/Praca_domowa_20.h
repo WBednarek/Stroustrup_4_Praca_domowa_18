@@ -4,4 +4,6 @@
 #include "Tools.h"
 
 
-void praca_domowa_19();
+
+
+void praca_domowa_20();
