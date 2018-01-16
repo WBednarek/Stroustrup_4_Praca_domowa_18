@@ -3,12 +3,12 @@
 
 #include "stdafx.h"
 #include "../../../../std_lib_facilities_v2.h"
+#include "Praca_domowa_19.h"
 
 
-int main()
+
+void praca_domowa_18()
 {
-
-	system("chcp 1250");
 	double a, b, c;
 	double x1 = 0.0;
 	double x2 = 0.0;
@@ -19,13 +19,13 @@ int main()
 	cin >> a >> b >> c;
 	cout << "Wspó³czynniki a = " << a << ", b = " << b << ", c = " << c << endl;
 
-	delta = (b*b) - 4*a*c;
+	delta = (b*b) - 4 * a*c;
 
 	cout << "Delta = " << delta << endl;
 
 	if (delta > 0)
 	{
-		x1 = (-b + sqrt(delta) ) / (2 * a);
+		x1 = (-b + sqrt(delta)) / (2 * a);
 		x2 = (-b - sqrt(delta)) / (2 * a);
 
 		cout << "Detla > 0 wiêc jak w liceum równanie ma dwa rozwi¹¿ania x1 = " << x1 << " i x2 = " << x2 << endl;
@@ -39,6 +39,16 @@ int main()
 	{
 		cout << "Równanie nie ma rozwi¹zañ w dziedzinie liczb Rzeczywistych" << endl;
 	}
+
+}
+
+int main()
+{
+
+	system("chcp 1250");
+	//praca_domowa_18();
+	praca_domowa_19();
+
 	 
 	system("pause");
 
