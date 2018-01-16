@@ -33,7 +33,7 @@ void praca_domowa_5()
 	{
 		cout << "Ró¿nica liczb " << first_number << " i " << second_number << " wynosi " << first_number - second_number << endl;
 	}
-	if (operation == "mno")
+	if (operation == "mnoz")
 	{
 		cout << "Iloczyn liczb " << first_number << " i " << second_number << " wynosi " << first_number * second_number << endl;
 	}
