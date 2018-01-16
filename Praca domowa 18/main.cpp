@@ -1,0 +1,47 @@
+// Praca domowa 18.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "../../../../std_lib_facilities_v2.h"
+
+
+int main()
+{
+
+	system("chcp 1250");
+	double a, b, c;
+	double x1 = 0.0;
+	double x2 = 0.0;
+	double delta = 0.0;
+
+	cout << "Rozwi¹zwyanie równania kwadratowego  ax^2 + bx + c = 0 " << endl << "Podaj wspó³czynniki a, b i c" << endl;
+
+	cin >> a >> b >> c;
+	cout << "Wspó³czynniki a = " << a << ", b = " << b << ", c = " << c << endl;
+
+	delta = (b*b) - 4*a*c;
+
+	cout << "Delta = " << delta << endl;
+
+	if (delta > 0)
+	{
+		x1 = (-b + sqrt(delta) ) / (2 * a);
+		x2 = (-b - sqrt(delta)) / (2 * a);
+
+		cout << "Detla > 0 wiêc jak w liceum równanie ma dwa rozwi¹¿ania x1 = " << x1 << " i x2 = " << x2 << endl;
+	}
+	else if (delta == 0)
+	{
+		x1 = -b / (2 * a);
+		cout << "Detla = 0 wiêc jak w liceum równanie ma jendno rozwi¹¿anie " << x1 << endl;
+	}
+	else
+	{
+		cout << "Równanie nie ma rozwi¹zañ w dziedzinie liczb Rzeczywistych" << endl;
+	}
+	 
+	system("pause");
+
+    return 0;
+}
+
