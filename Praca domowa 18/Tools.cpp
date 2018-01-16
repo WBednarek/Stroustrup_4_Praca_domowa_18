@@ -15,3 +15,29 @@ string tolowercase(string tolower)
 
 	return tolower;
 }
+
+
+template<typename T>
+bool compare_vectors(vector<T> & v1, vector<T> & v2)
+{
+	bool are_the_same = false;
+	if (v1.size() != v2.size())
+	{
+		are_the_same = false;
+		return are_the_same;
+	}
+
+	for (int i = 0; i < v1.size(); ++i)
+	{
+		if (v1.at(i) == v2.at(i))
+		{
+			are_the_same = true;
+		}
+		else
+		{
+			are_the_same = false;
+		}
+	}
+	return are_the_same;
+
+}

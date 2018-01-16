@@ -4,3 +4,7 @@
 
 
 string tolowercase(string tolowercase);
+
+
+template<typename T>
+bool compare_vectors(vector<T> & v1, vector<T> & v2);
