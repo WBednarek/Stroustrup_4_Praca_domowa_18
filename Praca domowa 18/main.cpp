@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 #include "../../../../std_lib_facilities_v2.h"
+#include "Praca_domowa_11.h"
 #include "Praca_domowa_19.h"
 #include "Praca_domowa_20.h"
 #include "Praca_domowa_21.h"
@@ -48,10 +49,11 @@ int main()
 {
 
 	system("chcp 1250");
+	praca_domowa_11();
 	//praca_domowa_18();
 	//praca_domowa_19();
 	//praca_domowa_20();
-	 praca_domowa_21();
+	 //praca_domowa_21();
 
 	 
 	system("pause");
