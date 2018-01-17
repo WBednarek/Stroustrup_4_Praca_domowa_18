@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Rozdział 4">
+      <UniqueIdentifier>{b3303d3b-be4d-4d85-b684-748a8c79b3b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Rozdział 5">
+      <UniqueIdentifier>{6225e8cd-c5eb-4adf-b58e-c5e7c63d9961}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -24,15 +30,6 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Praca_domowa_19.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Praca_domowa_20.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Tools.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="Praca_domowa_21.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -42,30 +39,51 @@
     <ClInclude Include="Praca_domowa_5.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Praca_domowa_19.h">
+      <Filter>Source Files\Rozdział 4</Filter>
+    </ClInclude>
+    <ClInclude Include="Praca_domowa_20.h">
+      <Filter>Source Files\Rozdział 4</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools.h">
+      <Filter>Source Files\Rozdział 4</Filter>
+    </ClInclude>
+    <ClInclude Include="Wypróbuj_5_3_1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Rozdział_5\Wypróbuj_Rozdział_5.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Praca_domowa_19.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Praca_domowa_20.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Tools.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Praca_domowa_21.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Praca_domowa_11.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Rozdział 4</Filter>
     </ClCompile>
     <ClCompile Include="Praca_domowa_5.cpp">
+      <Filter>Source Files\Rozdział 4</Filter>
+    </ClCompile>
+    <ClCompile Include="Praca_domowa_11.cpp">
+      <Filter>Source Files\Rozdział 4</Filter>
+    </ClCompile>
+    <ClCompile Include="Praca_domowa_19.cpp">
+      <Filter>Source Files\Rozdział 4</Filter>
+    </ClCompile>
+    <ClCompile Include="Praca_domowa_20.cpp">
+      <Filter>Source Files\Rozdział 4</Filter>
+    </ClCompile>
+    <ClCompile Include="Praca_domowa_21.cpp">
+      <Filter>Source Files\Rozdział 4</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files\Rozdział 4</Filter>
+    </ClCompile>
+    <ClCompile Include="Tools.cpp">
+      <Filter>Source Files\Rozdział 4</Filter>
+    </ClCompile>
+    <ClCompile Include="Wypróbuj_5_3_1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Rozdział_5\Wypróbuj_Rozdział_5.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
