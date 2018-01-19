@@ -48,9 +48,6 @@
     <ClInclude Include="Tools.h">
       <Filter>Source Files\Rozdział 4</Filter>
     </ClInclude>
-    <ClInclude Include="Wypróbuj_5_3_1.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Rozdział_5\Wypróbuj_Rozdział_5.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -79,9 +76,6 @@
     </ClCompile>
     <ClCompile Include="Tools.cpp">
       <Filter>Source Files\Rozdział 4</Filter>
-    </ClCompile>
-    <ClCompile Include="Wypróbuj_5_3_1.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Rozdział_5\Wypróbuj_Rozdział_5.cpp">
       <Filter>Source Files</Filter>

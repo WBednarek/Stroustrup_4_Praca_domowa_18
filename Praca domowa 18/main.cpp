@@ -49,7 +49,11 @@ int main()
 {
 
 	system("chcp 1250");
-	f(8, 3, 5);
+
+	wyproboj_5_10_1(1231243, 20001290);
+	//wyproboj_5_7();
+	//wyproboj_5_6_3();
+	//f(4, 3, 5);
 	//wyproboj_5_3_2();
 	//praca_domowa_5();
 	//praca_domowa_11();
@@ -59,6 +63,7 @@ int main()
 	 //praca_domowa_21();
 
 	 
+	//keep_window_open();
 	system("pause");
 
     return 0;
