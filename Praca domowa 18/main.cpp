@@ -7,6 +7,7 @@
 #include "Praca_domowa_19.h"
 #include "Praca_domowa_20.h"
 #include "Praca_domowa_21.h"
+#include "Rozdzia³_5\Praca_domowa.h"
 #include "Rozdzia³_5\Wypróbuj_Rozdzia³_5.h"
 
 
@@ -50,7 +51,8 @@ int main()
 
 	system("chcp 1250");
 
-	wyproboj_5_10_1(1231243, 20001290);
+	praca_domowa_8();
+	//wyproboj_5_10_1(1231243, 20001290);
 	//wyproboj_5_7();
 	//wyproboj_5_6_3();
 	//f(4, 3, 5);
@@ -62,8 +64,6 @@ int main()
 	//praca_domowa_20();
 	 //praca_domowa_21();
 
-	 
-	//keep_window_open();
 	system("pause");
 
     return 0;

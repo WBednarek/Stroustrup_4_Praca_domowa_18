@@ -51,6 +51,12 @@
     <ClInclude Include="Rozdział_5\Wypróbuj_Rozdział_5.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Rozdział_5\Cwiczenia.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Rozdział_5\Praca_domowa.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -78,6 +84,12 @@
       <Filter>Source Files\Rozdział 4</Filter>
     </ClCompile>
     <ClCompile Include="Rozdział_5\Wypróbuj_Rozdział_5.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Rozdział_5\Cwiczenia.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Rozdział_5\Praca_domowa.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
