@@ -2,6 +2,15 @@
 #include "Tools.h"
 
 
+template<typename T>
+void display_vector(vector<T> & to_disp)
+{
+	for (T disp : to_disp)
+	{
+		cout << disp << " ";
+	}
+}
+
 
 string tolowercase(string tolower)
 {
