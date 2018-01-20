@@ -17,8 +17,6 @@ void praca_domowa_8()
 			break;
 		}
 		input_vector.push_back(input_val);
-
-	
 	}
 
 	cout << "Ile pocz¹tkowych liczb zsumowaæ?" << endl;
@@ -56,6 +54,11 @@ int number_of_digits(int number)
 	return number_of_digits;
 }
 
+/**
+@param input - number to be split into separate digits
+@param numbers - vector stores digits from input
+Splitting an input number into separate digits stored in a vector
+*/
 void factorize_number(vector<int> & numbers, unsigned int input)
 {
 	unsigned int division_coef = 1;
@@ -67,8 +70,8 @@ void factorize_number(vector<int> & numbers, unsigned int input)
 	}
 }
 
-
-bool vector_contains(vector<int> & input, int number)
+template<typename T>
+bool vector_contains(vector<T> & input, T number)
 {
 	bool contains = false;
 	for (int i : input)
@@ -97,18 +100,15 @@ void praca_domowa_12()
 {
 
 	unsigned int input = 0;
-	unsigned int number_to_guess = 6557;
+	unsigned int number_to_guess = 2645;
 	vector<int> fact_number_to_guess(number_of_digits(number_to_guess));
 	factorize_number(fact_number_to_guess, number_to_guess);
 	unsigned int krowa_count = 0;
 	unsigned int byk_count = 0;
 
-	
-	bool number_occured = false;
 	vector<int> occured_number;
-	
-	int start_counter = 0;
 	vector<int> trimmed_vector;
+	//Loop breaks if whole number is properly guessed
 	while (byk_count != 4 && cin >> input)
 	{
 		byk_count = 0;
@@ -120,8 +120,10 @@ void praca_domowa_12()
 		{
 			error("Input value in bigger than 9999 or less than 1000");
 		}
+
+		//Trimmed vector has only unique value, there are no doubled values in it
 		trimmed_vector = make_unique_numbers_vector(user_numbers);
-	
+		//Finding Right digit on the right positions
 		for (int i = 0; i < user_numbers.size(); ++i)
 		{
 			if (user_numbers[i] == fact_number_to_guess[i])
@@ -138,7 +140,7 @@ void praca_domowa_12()
 			}
 		}
 
-		// Subtracting from all digit occurance, properly guessed occurances
+		// Subtracting from all found digits occurances (in vector which you have to guess), properly find with proper position occurances 
 		krowa_count -= byk_count;
 		cout << byk_count << " byk i " << krowa_count << " krowa"<< endl;
 	}
