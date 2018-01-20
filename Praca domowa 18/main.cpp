@@ -50,8 +50,8 @@ int main()
 {
 
 	system("chcp 1250");
-
-	praca_domowa_12();
+	praca_domowa_13();
+	//praca_domowa_12();
 	//praca_domowa_8();
 	//wyproboj_5_10_1(1231243, 20001290);
 	//wyproboj_5_7();

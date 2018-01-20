@@ -152,3 +152,87 @@ void praca_domowa_12()
 
 	
 }
+
+
+
+/**
+Praca domowa 13
+*/
+
+
+
+void praca_domowa_13()
+{
+
+	unsigned int input = 0;
+	int seed = 0;
+	cout << "Hello!\nGuess number from a ragne 1000 to 9999" << endl;
+	//cout << "Input seed for random generator" << endl;
+	//cin >> seed;
+	//srand(seed);
+	unsigned int number_to_guess = randint(1000,9999);
+	cout << "RAND num is " << number_to_guess << endl;;
+	vector<int> fact_number_to_guess(number_of_digits(number_to_guess));
+	factorize_number(fact_number_to_guess, number_to_guess);
+	unsigned int krowa_count = 0;
+	unsigned int byk_count = 0;
+
+	vector<int> occured_number;
+	vector<int> trimmed_vector;
+	cout << "Input your number form 1000 to 9999" << endl;
+	bool is_over = false;
+	//Loop breaks if whole number is properly guessed
+	while (byk_count != 4 && cin >> input)
+	{
+		byk_count = 0;
+		krowa_count = 0;
+		
+		vector<int> user_numbers(number_of_digits(input));
+		factorize_number(user_numbers, input);
+		if (input == 0)
+		{
+			cout << "This is the end" << endl;
+			break;
+		}
+		if (input < 1000 || input > 9999)
+		{
+			error("Input value in bigger than 9999 or less than 1000");
+		}
+
+		
+
+		//Trimmed vector has only unique value, there are no doubled values in it
+		trimmed_vector = make_unique_numbers_vector(user_numbers);
+		//Finding right digit on the right positions
+		for (int i = 0; i < user_numbers.size(); ++i)
+		{
+			if (user_numbers[i] == fact_number_to_guess[i])
+			{
+				++byk_count;
+			}
+			//Counting all occurances of the inputed digits in the vector to guess by user
+			for (int j = 0; j < trimmed_vector.size(); ++j)
+			{
+				if (trimmed_vector[j] == fact_number_to_guess[i])
+				{
+					++krowa_count;
+				}
+			}
+		}
+
+		// Subtracting from all found digits occurances (in vector which you have to guess), properly find with proper position occurances 
+		krowa_count -= byk_count;
+		if (byk_count == 4) is_over = true;
+		cout << byk_count << " byk i " << krowa_count << " krowa" << endl;
+		cout << "Input your number form 1000 to 9999" << endl;
+	}
+
+
+	if (is_over) { cout << "Brawo odgad³eœ!\nKolejna runda" << endl; praca_domowa_13(); }
+	
+	
+
+
+
+
+}

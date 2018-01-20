@@ -4,6 +4,8 @@
 
 void praca_domowa_8();
 void praca_domowa_12();
+void praca_domowa_13();
+
 int number_of_digits(int number);
 template<typename T>
 bool vector_contains(vector<T> & input, T number);
