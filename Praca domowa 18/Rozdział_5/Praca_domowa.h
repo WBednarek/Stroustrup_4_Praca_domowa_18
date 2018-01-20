@@ -11,4 +11,4 @@ template<typename T>
 bool vector_contains(vector<T> & input, T number);
 template<typename T>
 vector<T> make_unique_numbers_vector(vector<T> & input);
-void factorize_number(vector<int> & numbers, unsigned int input);
+void factorize_number(vector<int> & numbers, int input);

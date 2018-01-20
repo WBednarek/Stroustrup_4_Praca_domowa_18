@@ -59,8 +59,10 @@ int number_of_digits(int number)
 @param numbers - vector stores digits from input
 Splitting an input number into separate digits stored in a vector
 */
-void factorize_number(vector<int> & numbers, unsigned int input)
+void factorize_number(vector<int> & numbers, int input)
 {
+	if (input < 0) { input = -input; }
+	numbers.resize(number_of_digits(input));
 	unsigned int division_coef = 1;
 	unsigned int number_length = numbers.size();
 	for (int i = 1; i <= number_length; ++i)
@@ -164,6 +166,12 @@ Praca domowa 13
 void praca_domowa_13()
 {
 
+	vector<int> test1;
+	int numer = -23234;
+	factorize_number(test1, numer);
+	cout << "factorized number " << numer << endl;
+	display_vector(test1);
+
 	unsigned int input = 0;
 	int seed = 0;
 	cout << "Hello!\nGuess number from a ragne 1000 to 9999" << endl;
@@ -172,7 +180,8 @@ void praca_domowa_13()
 	//srand(seed);
 	unsigned int number_to_guess = randint(1000,9999);
 	cout << "RAND num is " << number_to_guess << endl;;
-	vector<int> fact_number_to_guess(number_of_digits(number_to_guess));
+	//vector<int> fact_number_to_guess(number_of_digits(number_to_guess));
+	vector<int> fact_number_to_guess;
 	factorize_number(fact_number_to_guess, number_to_guess);
 	unsigned int krowa_count = 0;
 	unsigned int byk_count = 0;
@@ -187,7 +196,7 @@ void praca_domowa_13()
 		byk_count = 0;
 		krowa_count = 0;
 		
-		vector<int> user_numbers(number_of_digits(input));
+		vector<int> user_numbers;
 		factorize_number(user_numbers, input);
 		if (input == 0)
 		{
