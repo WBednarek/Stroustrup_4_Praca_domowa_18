@@ -7,8 +7,9 @@
 #include "Praca_domowa_19.h"
 #include "Praca_domowa_20.h"
 #include "Praca_domowa_21.h"
-#include "Rozdzia³_5\Praca_domowa.h"
-#include "Rozdzia³_5\Wypróbuj_Rozdzia³_5.h"
+#include "Rozdzial_5\Praca_domowa.h"
+#include "Rozdzial_5\Wypróbuj_Rozdzia³_5.h"
+#include "Rozdzial_6\Wypróbuj.h"
 
 
 void praca_domowa_18()
@@ -50,7 +51,11 @@ int main()
 {
 
 	system("chcp 1250");
-	praca_domowa_13();
+	
+	wyproboj_6_6();
+	
+	
+	//praca_domowa_13();
 	//praca_domowa_12();
 	//praca_domowa_8();
 	//wyproboj_5_10_1(1231243, 20001290);

@@ -48,13 +48,16 @@
     <ClInclude Include="Tools.h">
       <Filter>Source Files\Rozdział 4</Filter>
     </ClInclude>
-    <ClInclude Include="Rozdział_5\Wypróbuj_Rozdział_5.h">
+    <ClInclude Include="Rozdzial_6\Wypróbuj.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Rozdział_5\Cwiczenia.h">
+    <ClInclude Include="Rozdzial_5\Cwiczenia.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Rozdział_5\Praca_domowa.h">
+    <ClInclude Include="Rozdzial_5\Praca_domowa.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Rozdzial_5\Wypróbuj_Rozdział_5.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -83,13 +86,13 @@
     <ClCompile Include="Tools.cpp">
       <Filter>Source Files\Rozdział 4</Filter>
     </ClCompile>
-    <ClCompile Include="Rozdział_5\Wypróbuj_Rozdział_5.cpp">
+    <ClCompile Include="Rozdzial_5\Cwiczenia.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Rozdział_5\Cwiczenia.cpp">
+    <ClCompile Include="Rozdzial_5\Praca_domowa.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Rozdział_5\Praca_domowa.cpp">
+    <ClCompile Include="Rozdzial_5\Wypróbuj_Rozdział_5.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
