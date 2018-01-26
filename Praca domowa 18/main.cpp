@@ -9,8 +9,8 @@
 #include "Praca_domowa_21.h"
 #include "Rozdzial_5\Praca_domowa.h"
 #include "Rozdzial_5\Wypróbuj_Rozdzia³_5.h"
-#include "Rozdzial_6\Wypróbuj.h"
-
+#include "Rozdzial_6\Wypróbuj_6_6_original.h"
+#include "Rozdzial_6\Wyprobuj_6_9.h"
 
 void praca_domowa_18()
 {
@@ -52,7 +52,7 @@ int main()
 
 	system("chcp 1250");
 	
-	wyproboj_6_6();
+	wyproboj_6_9();
 	
 	
 	//praca_domowa_13();

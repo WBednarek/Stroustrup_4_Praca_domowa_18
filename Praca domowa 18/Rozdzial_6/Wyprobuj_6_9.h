@@ -20,6 +20,19 @@ public:
 
 //------------------------------------------------------------------------------
 
+class Token_stream
+{
+public: 
+	Token_stream();
+	Token get();
+	void putback(Token t);
+
+private:
+	bool full;
+	Token buffer;
+
+};
+
 Token get_token()    // read a token from cin
 {
 	char ch;
@@ -56,6 +69,8 @@ double term();        // read and evaluate a Term
 
 double primary();
 
+Token_stream ts;
+
 
 
 //------------------------------------------------------------------------------
@@ -63,18 +78,19 @@ double primary();
 double expression()
 {
 	double left = term();      // read and evaluate a Term
-	Token t = get_token();     // get the next token
+	Token t = ts.get();     // get the next token
 	while (true) {
 		switch (t.kind) {
 		case '+':
 			left += term();    // evaluate Term and add
-			t = get_token();
+			t =  ts.get();
 			break;
 		case '-':
 			left -= term();    // evaluate Term and subtract
-			t = get_token();
+			t = ts.get();
 			break;
 		default:
+			ts.putback(t);
 			return left;       // finally: no more + or -: return the answer
 		}
 	}
@@ -85,23 +101,24 @@ double expression()
 double term()
 {
 	double left = primary();
-	Token t = get_token();     // get the next token
+	Token t = ts.get();     // get the next token
 
 	while (true) {
 		switch (t.kind) {
 		case '*':
 			left *= primary();
-			t = get_token();
+			t = ts.get();
 			break;
 		case '/':
 		{
 			double d = primary();
 			if (d == 0) error("divide by zero");
 			left /= d;
-			t = get_token();
+			t = ts.get();
 			break;
 		}
 		default:
+			ts.putback(t);
 			return left;
 		}
 	}
@@ -111,12 +128,12 @@ double term()
 
 double primary()     // read and evaluate a Primary
 {
-	Token t = get_token();
+	Token t = ts.get();
 	switch (t.kind) {
 	case '(':    // handle '(' expression ')'
 	{
 		double d = expression();
-		t = get_token();
+		t = ts.get();
 		if (t.kind != ')') error("')' expected");
 		return d;
 	}
@@ -129,23 +146,82 @@ double primary()     // read and evaluate a Primary
 
 //------------------------------------------------------------------------------
 
-int wyproboj_6_6()
+int wyproboj_6_9()
+{
+	try {
+		cout << "Insert expression" << endl;
+		double val = 0;
+		while (cin)
+		{
+			Token t = ts.get();
+			if (t.kind == 'k') break;
+			if (t.kind == ';') cout << "=" << val << '\n';
+			else
+			{
+				ts.putback(t);
+				val = expression();
+			}			
+		}
+			
+		keep_window_open("~0");
+	}
+	catch (exception& e) {
+		cerr << e.what() << endl;
+		keep_window_open("~1");
+		return 1;
+	}
+	catch (...) {
+		cerr << "exception \n";
+		keep_window_open("~2");
+		return 2;
+	}
 
-try {
-	cout << "Insert expression" << endl;
-	//double expresionn = expression();
-	//cout << "++" << expresionn << endl;
-	while (cin)
-		cout << "="<< expression() << '\n';
-	keep_window_open("~0");
+
 }
-catch (exception& e) {
-	cerr << e.what() << endl;
-	keep_window_open("~1");
-	return 1;
+
+//------------------------------------------------------------------------------
+
+Token_stream::Token_stream() :full(false), buffer(0)
+{
+
 }
-catch (...) {
-	cerr << "exception \n";
-	keep_window_open("~2");
-	return 2;
+
+void Token_stream::putback(Token t)
+{
+	if (full) error("Wywo³anie funkcji putback(), gdy bufor jest pe³ny");
+	buffer = t;
+	full = true;
+}
+
+Token Token_stream::get()
+{
+	if (full)
+	{
+		full = false;
+		return buffer;
+	}
+
+	char ch;
+	cin >> ch;
+	switch (ch)
+	{
+	case ';':
+	case 'k':
+	case '(': case ')': case '+': case '-': case '*': case '/': case '%':
+	{
+		return Token(ch);
+	}
+	case '.':
+	case '0': case '1': case '2': case '3': case '4': 
+	case '5':  case '6': case '7': case '8': case '9':
+	{
+		cin.putback(ch);
+		double val;
+		cin >> val;
+		return Token('8', val);
+	}
+
+	default:
+		error("Nieprawid³owy token.");
+	}
 }

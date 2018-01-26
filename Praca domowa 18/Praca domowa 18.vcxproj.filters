@@ -48,9 +48,6 @@
     <ClInclude Include="Tools.h">
       <Filter>Source Files\Rozdział 4</Filter>
     </ClInclude>
-    <ClInclude Include="Rozdzial_6\Wypróbuj.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Rozdzial_5\Cwiczenia.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -58,6 +55,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Rozdzial_5\Wypróbuj_Rozdział_5.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Rozdzial_6\Wypróbuj_6_6_original.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Rozdzial_6\Wyprobuj_6_9.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
