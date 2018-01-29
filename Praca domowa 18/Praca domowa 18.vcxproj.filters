@@ -63,6 +63,9 @@
     <ClInclude Include="Rozdzial_6\Wyprobuj_6_9.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Rozdzial_6\cwiczenia_6.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -96,6 +99,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Rozdzial_5\Wypróbuj_Rozdział_5.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Rozdzial_6\cwiczenia_6.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

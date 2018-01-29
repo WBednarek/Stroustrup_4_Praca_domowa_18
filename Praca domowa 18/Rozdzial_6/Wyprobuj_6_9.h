@@ -4,6 +4,11 @@
 // "Software - Principles and Practice using C++" by Bjarne Stroustrup
 //
 
+/*
+
+
+
+
 #include "../../../../../std_lib_facilities_v2.h"
 
 //------------------------------------------------------------------------------
@@ -225,3 +230,7 @@ Token Token_stream::get()
 		error("Nieprawid³owy token.");
 	}
 }
+
+
+
+*/

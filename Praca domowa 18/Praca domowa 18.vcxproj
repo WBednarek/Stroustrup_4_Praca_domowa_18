@@ -153,6 +153,7 @@
     <ClInclude Include="Praca_domowa_19.h" />
     <ClInclude Include="Praca_domowa_21.h" />
     <ClInclude Include="Praca_domowa_5.h" />
+    <ClInclude Include="Rozdzial_6\cwiczenia_6.h" />
     <ClInclude Include="Rozdzial_6\Wyprobuj_6_9.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -169,6 +170,7 @@
     <ClCompile Include="Praca_domowa_20.cpp" />
     <ClCompile Include="Praca_domowa_21.cpp" />
     <ClCompile Include="Praca_domowa_5.cpp" />
+    <ClCompile Include="Rozdzial_6\cwiczenia_6.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
