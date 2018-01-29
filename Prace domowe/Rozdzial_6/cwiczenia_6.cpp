@@ -69,8 +69,8 @@ Token Token_stream::get()
 	cin >> ch;    // note that >> skips whitespace (space, newline, tab, etc.)
 
 	switch (ch) {
-	case ';':    // for "print"
-	case 'q':    // for "quit"
+	case '=':    // for "print"
+	case 'x':    // for "quit"
 	case '(': case ')': case '*': case '/': case '+': case '-':
 		return Token(ch);        // let each character represent itself
 	case '.':
@@ -165,14 +165,19 @@ double expression()
 int cwiczenia_6_1()
 try
 {
+	cout << "Witaj w prostym kalkulatorze.\nW wyra¿eniach stosuj liczny zmiennoprzecinkowe." << endl;
+	cout << endl;
+	cout << "Program obs³ubuje operatory '(', ')', '*', '/', '+', '-'"<< endl;
+	cout << "Drukowanie wyniku wstaw na koñcu dzia³ania '=' np. wpisz \"2+3=\" "<< endl;
+	cout << "Koñczenie programu wpisz 'x' " << endl;
 	double val = 0;
 	
 	while (cin) {
 		
 		Token t = ts.get();
 
-		if (t.kind == 'q') break; // 'q' for quit
-		if (t.kind == ';')        // ';' for "print now"
+		if (t.kind == 'x') break; // 'x' for quit
+		if (t.kind == '=')        // ';' for "print now"
 			cout << "=" << val << '\n';
 		else
 			ts.putback(t);
