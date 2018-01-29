@@ -57,8 +57,8 @@ int main()
 	system("chcp 1250");
 	
 
-	//cwiczenia_6_1();
-	wyproboj_6_9();
+	cwiczenia_6_1();
+	//wyproboj_6_9();
 	//praca_domowa_13();
 	//praca_domowa_12();
 	//praca_domowa_8();
