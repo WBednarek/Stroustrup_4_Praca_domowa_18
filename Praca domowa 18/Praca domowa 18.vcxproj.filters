@@ -104,5 +104,8 @@
     <ClCompile Include="Rozdzial_6\cwiczenia_6.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Rozdzial_6\Wyprobuj_6_9.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

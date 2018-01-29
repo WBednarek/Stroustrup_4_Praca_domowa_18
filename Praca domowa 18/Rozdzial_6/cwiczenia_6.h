@@ -1,5 +1,5 @@
 #pragma once
-
+#include "../stdafx.h"
 
 //
 // This is example code from Chapter 6.7 "Trying the second version" of
@@ -19,7 +19,11 @@ Happy hunting!
 
 */
 
-#include "../stdafx.h"
+
+/*
+
+
+
 #include "../../../../../std_lib_facilities_v2.h"
 
 //------------------------------------------------------------------------------
@@ -52,3 +56,6 @@ double term();
 double expression();
 int cwiczenia_6_1();
 
+
+
+*/

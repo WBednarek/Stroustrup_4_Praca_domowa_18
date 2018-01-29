@@ -1,7 +1,6 @@
 // Praca domowa 18.cpp : Defines the entry point for the console application.
 
 /*
-
 #include "Praca_domowa_5.h"
 #include "Praca_domowa_11.h"
 #include "Praca_domowa_19.h"
@@ -10,13 +9,12 @@
 #include "Rozdzial_5\Praca_domowa.h"
 #include "Rozdzial_5\Wypróbuj_Rozdzia³_5.h"
 #include "Rozdzial_6\Wypróbuj_6_6_original.h"
-#include "Rozdzial_6\Wyprobuj_6_9.h"
 */
-
 
 #include "stdafx.h"
 #include "../../../../std_lib_facilities_v2.h"
 #include "Rozdzial_6\cwiczenia_6.h"
+#include "Rozdzial_6\Wyprobuj_6_9.h"
 
 void praca_domowa_18()
 {
@@ -59,8 +57,8 @@ int main()
 	system("chcp 1250");
 	
 
-	cwiczenia_6_1();
-	//wyproboj_6_9();
+	//cwiczenia_6_1();
+	wyproboj_6_9();
 	//praca_domowa_13();
 	//praca_domowa_12();
 	//praca_domowa_8();

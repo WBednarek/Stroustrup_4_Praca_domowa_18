@@ -171,6 +171,7 @@
     <ClCompile Include="Praca_domowa_21.cpp" />
     <ClCompile Include="Praca_domowa_5.cpp" />
     <ClCompile Include="Rozdzial_6\cwiczenia_6.cpp" />
+    <ClCompile Include="Rozdzial_6\Wyprobuj_6_9.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
