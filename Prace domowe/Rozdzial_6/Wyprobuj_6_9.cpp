@@ -1,10 +1,15 @@
+#include "stdafx.h"
+/*
+
+
+
 
 //
 // This is example code from Chapter 6.6 "Trying the first version" of
 // "Software - Principles and Practice using C++" by Bjarne Stroustrup
 //
 
-#include "stdafx.h"
+
 #include "../../../../../std_lib_facilities_v2.h"
 #include "Wyprobuj_6_9.h"
 
@@ -198,3 +203,8 @@ Token Token_stream::get()
 		error("Nieprawid³owy token.");
 	}
 }
+
+
+
+
+*/

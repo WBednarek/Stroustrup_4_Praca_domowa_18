@@ -1,3 +1,8 @@
+/*
+
+
+
+
 
 //
 // This is example code from Chapter 6.6 "Trying the first version" of
@@ -36,3 +41,6 @@ double term();        // read and evaluate a Term
 double primary();
 int wyproboj_6_9();
 
+
+
+*/

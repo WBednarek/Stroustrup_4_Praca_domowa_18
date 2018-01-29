@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{90F2FEB5-BDDC-4E6A-B6FE-F62A20367713}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Pracadomowa18</RootNamespace>
+    <RootNamespace>Pracedomowe</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
     <ProjectName>Prace_domowe</ProjectName>
   </PropertyGroup>

@@ -20,10 +20,6 @@ Happy hunting!
 */
 
 
-/*
-
-
-
 #include "../../../../../std_lib_facilities_v2.h"
 
 //------------------------------------------------------------------------------
@@ -56,6 +52,3 @@ double term();
 double expression();
 int cwiczenia_6_1();
 
-
-
-*/
