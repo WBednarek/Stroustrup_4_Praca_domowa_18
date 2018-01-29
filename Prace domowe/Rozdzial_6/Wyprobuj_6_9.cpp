@@ -1,7 +1,7 @@
 #include "stdafx.h"
+
+
 /*
-
-
 
 
 //
@@ -203,7 +203,6 @@ Token Token_stream::get()
 		error("Nieprawid³owy token.");
 	}
 }
-
 
 
 

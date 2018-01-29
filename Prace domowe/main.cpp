@@ -16,6 +16,40 @@
 #include "Rozdzial_6\cwiczenia_6.h"
 #include "Rozdzial_6\Wyprobuj_6_9.h"
 
+
+
+int main()
+{
+
+	system("chcp 1250");
+	
+
+	cwiczenia_6_1();
+	//wyproboj_6_9();
+	//praca_domowa_13();
+	//praca_domowa_12();
+	//praca_domowa_8();
+	//wyproboj_5_10_1(1231243, 20001290);
+	//wyproboj_5_7();
+	//wyproboj_5_6_3();
+	//f(4, 3, 5);
+	//wyproboj_5_3_2();
+	//praca_domowa_5();
+	//praca_domowa_11();
+	//praca_domowa_18();
+	//praca_domowa_19();
+	//praca_domowa_20();
+	 //praca_domowa_21();
+
+	system("pause");
+
+    return 0;
+}
+
+
+
+
+
 void praca_domowa_18()
 {
 	double a, b, c;
@@ -50,32 +84,3 @@ void praca_domowa_18()
 	}
 
 }
-
-int main()
-{
-
-	system("chcp 1250");
-	
-
-	cwiczenia_6_1();
-	//wyproboj_6_9();
-	//praca_domowa_13();
-	//praca_domowa_12();
-	//praca_domowa_8();
-	//wyproboj_5_10_1(1231243, 20001290);
-	//wyproboj_5_7();
-	//wyproboj_5_6_3();
-	//f(4, 3, 5);
-	//wyproboj_5_3_2();
-	//praca_domowa_5();
-	//praca_domowa_11();
-	//praca_domowa_18();
-	//praca_domowa_19();
-	//praca_domowa_20();
-	 //praca_domowa_21();
-
-	system("pause");
-
-    return 0;
-}
-

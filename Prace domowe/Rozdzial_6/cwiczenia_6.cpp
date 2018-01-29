@@ -26,7 +26,7 @@ Happy hunting!
 
 
 #include "cwiczenia_6.h"
-#include "../../../../../std_lib_facilities_v2.h"
+#include "../std_lib_facilities_v2.h"
 
 //------------------------------------------------------------------------------
 
@@ -71,11 +71,11 @@ Token Token_stream::get()
 	switch (ch) {
 	case ';':    // for "print"
 	case 'q':    // for "quit"
-	case '(': case ')': case '+': case '-': case '*': case '/':
+	case '(': case ')': case '*': case '/': case '+': case '-':
 		return Token(ch);        // let each character represent itself
 	case '.':
 	case '0': case '1': case '2': case '3': case '4':
-	case '5': case '6': case '7': case '9':
+	case '5': case '6': case '7': case '8': case '9':
 	{
 		cin.putback(ch);         // put digit back into the input stream
 		double val;
@@ -119,6 +119,7 @@ double term()
 		case '*':
 			left *= primary();
 			t = ts.get();
+			break;
 		case '/':
 		{
 			double d = primary();
@@ -149,7 +150,7 @@ double expression()
 			t = ts.get();
 			break;
 		case '-':
-			left += term();    // evaluate Term and subtract
+			left -= term();    // evaluate Term and subtract
 			t = ts.get();
 			break;
 		default:
@@ -165,7 +166,9 @@ int cwiczenia_6_1()
 try
 {
 	double val = 0;
+	
 	while (cin) {
+		
 		Token t = ts.get();
 
 		if (t.kind == 'q') break; // 'q' for quit
