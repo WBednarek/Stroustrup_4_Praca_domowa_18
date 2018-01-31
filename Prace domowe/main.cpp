@@ -15,6 +15,7 @@
 #include "../../../../std_lib_facilities_v2.h"
 #include "Rozdzial_6\cwiczenia_6.h"
 #include "Rozdzial_6\Wyprobuj_6_9.h"
+#include "Rozdzial_6\Praca_domowa_6.h"
 
 
 
@@ -23,8 +24,8 @@ int main()
 
 	system("chcp 1250");
 	
-
-	cwiczenia_6_1();
+	praca_domowa_R6_6();
+	//cwiczenia_6_1();
 	//wyproboj_6_9();
 	//praca_domowa_13();
 	//praca_domowa_12();

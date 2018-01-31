@@ -245,3 +245,8 @@ void praca_domowa_13()
 
 
 }
+
+void praca_domowa_6()
+{
+	cout << "English grammar software" << endl;
+}
