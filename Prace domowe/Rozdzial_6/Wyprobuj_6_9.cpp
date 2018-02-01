@@ -120,40 +120,7 @@ double primary()     // read and evaluate a Primary
 	}
 }
 
-//------------------------------------------------------------------------------
 
-int wyproboj_6_9()
-{
-	try {
-		cout << "Insert expression" << endl;
-		double val = 0;
-		while (cin)
-		{
-			Token t = ts.get();
-			if (t.kind == 'k') break;
-			if (t.kind == ';') cout << "=" << val << '\n';
-			else
-			{
-				ts.putback(t);
-				val = expression();
-			}
-		}
-
-		keep_window_open("~0");
-	}
-	catch (exception& e) {
-		cerr << e.what() << endl;
-		keep_window_open("~1");
-		return 1;
-	}
-	catch (...) {
-		cerr << "exception \n";
-		keep_window_open("~2");
-		return 2;
-	}
-
-
-}
 
 //------------------------------------------------------------------------------
 
@@ -204,6 +171,41 @@ Token Token_stream::get()
 	}
 }
 
+
+//------------------------------------------------------------------------------
+
+int wyproboj_6_9()
+{
+try {
+cout << "Insert expression" << endl;
+double val = 0;
+while (cin)
+{
+Token t = ts.get();
+if (t.kind == 'k') break;
+if (t.kind == ';') cout << "=" << val << '\n';
+else
+{
+ts.putback(t);
+val = expression();
+}
+}
+
+keep_window_open("~0");
+}
+catch (exception& e) {
+cerr << e.what() << endl;
+keep_window_open("~1");
+return 1;
+}
+catch (...) {
+cerr << "exception \n";
+keep_window_open("~2");
+return 2;
+}
+
+
+}
 
 
 */
