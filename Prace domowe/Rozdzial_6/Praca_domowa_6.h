@@ -6,15 +6,13 @@ void praca_domowa_R6_6();
 
 string answer(bool ans);
 
-bool sentence();
+bool sentence(string show_results_symbol);
 
 bool noun();
 
 bool verb();
 
-bool conjunction1(); // Problem with naming that function conjunction (is ambiguous)
-
-string get_word();
+bool conjunction1(string show_results_symbol); // Problem with naming that function conjunction (is ambiguous)
 
 class Stream_of_string
 {

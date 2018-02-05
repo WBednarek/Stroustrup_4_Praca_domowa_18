@@ -11,20 +11,63 @@ void praca_domowa_R6_6()
 
 	string test = " ";
 	bool result = false;
-	while (cin)
+	string finish_symbol = "k";
+	string show_result_symbol = ".";
+	string str ="";
+
+
+	while (true)
 	{
-		string str = string_stream.get();
-		
-		if (str == "k") break;
-		if (str == ";") cout << answer(result) << endl;
-		else
+		while (cin)
 		{
-			string_stream.putback(str);
+			str = string_stream.get();
+
+			if (str == finish_symbol) break;
+			if (str == show_result_symbol)
+			{
+				cout << answer(result) << endl;
+				//cin.ignore(INT_MAX);
+				break;
+			}
+			else
+			{
+				string_stream.putback(str);
+			}
+
+			result = sentence(show_result_symbol);
+			/*if (str == show_result_symbol)
+			{
+				
+			}*/
 		}
+		if (str == finish_symbol) break;
+		cin.ignore(INT_MAX, '\n');
 		
-		result = sentence();
 
 	}
+
+	
+
+	/*
+	
+	if (str == finish_symbol) break;
+	cin.ignore(INT_MAX);
+
+	}
+	*/
+
+
+
+
+		/*
+		if (str != show_result_symbol)
+		{
+
+		}
+*/
+	
+		
+		
 
 
 	//cout << "String stream is " << endl;
@@ -50,21 +93,129 @@ string answer(bool ans)
 }
 
 
-bool sentence()
+bool sentence(string show_results_symbol)
 {
 	//if (noun() == false || conjunction1() == false || verb() == false) return false;
-	bool is_sentence = false;
-	bool left = noun();
-	bool left_1 = verb();
-	//string word = string_stream.get();
-	if (left * left_1)
+	bool first_loop = true;
+	string bad_conj = "badconjunction";
+	//bool left = noun();
+	//bool left_1 = verb();
+	bool is_sentence = noun() * verb();
+	string word ="";
+	while (true)
+	{
+		
+		bool left_2 = conjunction1(show_results_symbol);
+		//bool small_sentence = left * left_1;
+		
+		//if (word == ";") return is_sentence;
+		switch (left_2)
+		{
+		case true:
+			/*bool left = noun();
+			bool left_1 = verb();*/
+			is_sentence *= noun() * verb();
+			first_loop = false;
+			//word = string_stream.get();
+			//is_sentence = small_sentence;
+			//is_sentence *= small_sentence;
+			//word = string_stream.get();
+			break;
+		default:
+			word = string_stream.get();
+			if (word == bad_conj)
+			{
+				string_stream.putback(show_results_symbol);
+				return false;
+				break;
+			}
+			else
+			{
+				string_stream.putback(word);
+				return is_sentence;
+				break;
+			}
+			
+
+
+			//
+			//word = string_stream.get();
+			//string_stream.putback(word);
+			/*if (first_loop)
+			{
+				return is_sentence;
+			}
+			else
+			{
+				first_loop = false;
+				return is_sentence;
+			}*/
+			
+			
+			//if (small_sentence && counter == 1)
+			//{
+			//	//word = string_stream.get();
+			//	is_sentence = true;
+			//	string_stream.putback(word);
+			//}
+			//else
+			//{
+			//	//word = string_stream.get();
+			//	is_sentence = false;
+			//	string_stream.putback(word);
+			//}
+
+
+			//is_sentence = false;
+			//string_stream.putback(word);
+			
+
+			/*
+			if (small_sentence  && word == ";")
+			{
+				is_sentence = true;
+				string_stream.putback(word);
+				break;
+			}
+			else
+			{
+				is_sentence = false;
+				string_stream.putback(word);
+				break;
+			}
+			
+			*/
+			
+
+		}
+	}
+		
+	
+	
+
+
+	/*
+
+	if (small_sentence * left_2)
+	{
+		sentence();
+		is_sentence = true;
+	}
+	else if (small_sentence && word == ";")
 	{
 		is_sentence = true;
-		//word = string_stream.get();
-		
+		string_stream.putback(word);
+	
+	
+	else
+	{
+		is_sentence = false;
+		string_stream.putback(word);
 	}
+
+	}*/
 	//string_stream.putback(word);
-	return is_sentence;
+
 }
 
 bool noun()
@@ -77,6 +228,7 @@ bool noun()
 		{
 			is_noun = true;
 			word = string_stream.get();
+			break;
 		}
 	string_stream.putback(word);
 	return is_noun;
@@ -91,25 +243,48 @@ bool verb()
 		if (word == verb)
 		{
 			is_verb = true;
+			 word = string_stream.get();
+			break;
 			
 		}
-	word = string_stream.get();
+
 	string_stream.putback(word);
 	return is_verb;
 }
 
-bool conjunction1()
+
+bool conjunction1(string show_results_symbol)
 {
 	string word = string_stream.get();
-	vector<string> conj_set = { "and", "or", "but" };
+	string bad_conj = "badconjunction";
+	if (word == show_results_symbol)
+	{
+		string_stream.putback(word);
+		return false;
+	}
+
 	bool is_conj = false;
+	vector<string> conj_set = { "and", "or", "but" };	
 	for(string conj : conj_set)
 	if (word == conj)
 	{
 		is_conj = true;
 		word = string_stream.get();
+		break;
 	}
-	string_stream.putback(word);
+
+	//Putsback value that reports an input word is dirrent than words in the conj_set vector,
+	//That value will inform that there is no point to continue validation
+	if (!is_conj)
+	{
+		string_stream.putback(bad_conj);
+	}
+		
+	else
+	{
+		string_stream.putback(word);
+	}
+	
 	return is_conj;
 
 }
@@ -134,23 +309,8 @@ string Stream_of_string::get()
 	}
 	string word;
 	cin >> word;
-
-	return word;
+	//if (word == "") word = buffer;
+	 return word;
+	
 }
 
-
-
-
-
-
-
-
-
-string get_word()
-{
-	string word;
-	cin >> word;
-
-	return word;
-
-}
