@@ -16,7 +16,7 @@ void praca_domowa_R6_6()
 	string str ="";
 
 
-	//Outer loop gives the possibility of not cheacking grammar anymore if the first miskake is found
+	//Outer loop for the possibility of not cheacking grammar no more when the first miskake is found
 	while (true)
 	{
 		while (cin)
@@ -38,10 +38,8 @@ void praca_domowa_R6_6()
 		}
 
 		if (str == finish_symbol) break; //Exit program
-		//Cleans input if show_result_symbol showed up in the inner loop. 
-		//That function gives "tabula rasa" in the next line and only newly inputed values (sentence) in that new line will be considered for validation.
-		//We are cleaning cin because we don't want to have old values in the next inner loop iterations.
-		cin.ignore(INT_MAX, '\n'); //Skips number of INT_MAX symbols to the next line.
+		//Cleans input if show_result_symbol showed up in the inner loop. Skips number of INT_MAX symbols to the next line.
+		cin.ignore(INT_MAX, '\n'); 
 	}
 }
 
@@ -67,16 +65,16 @@ bool sentence(string show_results_symbol)
 	while (true)
 	{
 
-		bool conj = conjunction1(show_results_symbol);
-		switch (conj) //Checks if we have we have conjunction
+		bool left_2 = conjunction1(show_results_symbol);
+		switch (left_2) //Do we have conjunction?
 		{
 		case true:
 			is_sentence *= article() * noun() * verb();
 			break;
 		default:
-			word = string_stream.get(); //In valid sentence (input line) we want to get show_result_symbol (e.g. ".")
+			word = string_stream.get(); //In valid sentence we want to get show_result_symbol (e.g. ".")
 
-			//conjunction1() function returned bad_conj information, there is no reson to validate sentence (input line) any longer
+			//conjunction1() function returned bad_conj information, there is no reson to validate input longer
 			if (word == bad_conj)
 			{
 				string_stream.putback(show_results_symbol);
@@ -96,16 +94,17 @@ bool sentence(string show_results_symbol)
 
 }
 
-//Always has to be true and its functionality depends only on "the" article appearance in the sentence
-//If sentence contains “the” article() function gets the next word - potential noun, otherwise function does practically nothing (it gest and puts back the same word)
 bool article()
 {
 	string word = string_stream.get();
+	//bool is_preposition = false;
 	if (word == "the" || word == "The")
 	{
-		word = string_stream.get(); //Gets the next word in sentence (after article)
+		//is_preposition = true;
+		word = string_stream.get(); //Gets the next word in input line (after article)
 	}
-	string_stream.putback(word);
+		string_stream.putback(word);
+	
 	return true;
 }
 
@@ -119,11 +118,10 @@ bool noun()
 		if (word == noun)
 		{
 			is_noun = true;
-			word = string_stream.get(); //Gets the next word in sentence (after noun)
+			word = string_stream.get(); //Gets the next word in input line (after noun)
 			break;
 		}
-	string_stream.putback(word); //Stores the next word to be accessible for the next get() function usage (the function of our Stream_of_string class). 
-	//We are using get() function almost everywhere, in every function on this program on unfortunately global object Stream_of_string string_stream.
+	string_stream.putback(word); //Stores the next word to be accessible using for the next get() function usage (function of our Stream_of_string class) 
 	return is_noun;
 }
 
@@ -150,7 +148,7 @@ bool conjunction1(string show_results_symbol)
 {
 	string word = string_stream.get();
 	string bad_conj = "badconjunction";
-	//If the word is end line symbol there is no reason to validate conjunction since it is bad anyway
+	//If the word is end line symbol there is no reason to validate conjunction since is bad anyway
 	if (word == show_results_symbol)
 	{
 		string_stream.putback(word);
@@ -167,8 +165,9 @@ bool conjunction1(string show_results_symbol)
 		break;
 	}
 
-	//If still conjunction is not valid it puts back (stores) bad_conj value which will report sentence() about that
-	//And if so (if conjunction is bad) there is no point to continue validation of whole inputted sentence, because it is bad according to Stroustrup PPP chapter 6.4.1 grammar assumptions
+	//
+	//If still conjunction is not valid it puts back bad_conj value which reports about that 
+	//And if so (if conjunction is bad) there is no point to continue validation of whole inputted sentence, because it is bad according to our grammar assumptions
 	//That value will inform sentence() function about that
 	if (!is_conj)
 	{
@@ -204,15 +203,7 @@ string Stream_of_string::get()
 	}
 	string word;
 	cin >> word;
-	//if (word == "") word = buffer; // I tried to do something when there is no symbols to get and function asks user for the next iput values.
-	//That function shouldn't do that since user should input only values in the "main" ( praca_domowa_R6_6() ) function. 
-
-	/*
-	This bug description: when there is no any symbol at the end of the line in the inputted line (input A). 
-	The program does not respond and gets stuck in verb() function (in our Stream_of_string class function) 
-	because there are no more characters to get and it asks the user to input new (input B). 
-	If the user does so then it continues in the sentence() function with previous input (input A) and validates it.
-	*/
+	//if (word == "") word = buffer; // I tried to do something when there is no symbols to get
 	 return word;
 	
 }

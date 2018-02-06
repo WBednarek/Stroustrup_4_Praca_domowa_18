@@ -8,6 +8,8 @@ string answer(bool ans);
 
 bool sentence(string show_results_symbol);
 
+bool article();
+
 bool noun();
 
 bool verb();
