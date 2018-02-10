@@ -1,6 +1,8 @@
 #include "../stdafx.h"
 #include "../../../../../std_lib_facilities_v2.h"
 //#include "../Tools.h"
+#include <chrono>
+#include <random>
 
 
 struct Bulls_and_cows
@@ -9,6 +11,12 @@ struct Bulls_and_cows
 	int cows;
 
 };
+
+char read_letters(vector<char> & to_guess, vector<char> & letters, char program_finish_sign);
+
+bool evaluate_user_input_word(vector<char>& to_guess, vector<char>& letters);
+
+void start_game();
 
 void praca_domowa_R6_8();
 

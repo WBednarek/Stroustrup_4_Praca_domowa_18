@@ -20,56 +20,93 @@ vector<T> display_vector1(vector<T> & to_display)
 
 
 void praca_domowa_R6_8()
-{	
-	vector<char> my_word = { 'd', 'a', 'r', 'o' };
-	cout << "Gues the word only english letters are accepted\nmaximun number of letters is " << my_word.size() << endl;
+{
+
+	cout << "Gues the word only english letters are accepted\nmaximun number of letters is " << endl;
 	cout << "All characters after 4th will be ignored" << endl;
-	
-	while (true)
-	{
-		char test = ' ';
-		int letters_counter = 0;
-		vector<char> letters;
-		bool wrong_letters_num = false;
-		if (test == '.') break;
-		while (letters_counter != my_word.size())
-		{
-			++letters_counter;
-			if (letters_counter > my_word.size()) 
-			{	
-				wrong_letters_num = true; 
-				break; 
-			}
-			cin >> test;
-			if (test == '.') break;
-			cin.putback(test);
-			get_letter(letters);		
-		}
-		if (wrong_letters_num)
-		{
-			cout << "Wrong length of input, try again" << endl;
-		}
-		else
-		{
-			Bulls_and_cows b_and_c = cacluate_hits(my_word, letters);
-			if (b_and_c.bulls == my_word.size())
-			{
-				cout << "Bravo you guessed" << endl;
-				break;
-			}
-			else
-			{
-				cout << "Considered input word: \"" << letters << "\"" << endl;
-				cout << "Bull " << b_and_c.bulls << " Cow " << b_and_c.cows << endl;
-				cin.ignore(INT_MAX, '\n');
-			}
-		}
-		
-
-	}
-
+	start_game();
 
 }
+
+
+template<typename T>
+vector<T> random_vector()
+{
+	//In ASCII a-z letters are numerically 97-122.
+	int a_ASCII = 97;
+	int z_ASCII = 122;
+
+	unsigned word_to_guess_length = 4;
+	vector<T> random_vector(word_to_guess_length);
+	
+	unsigned seed = chrono::system_clock::now().time_since_epoch().count();
+	default_random_engine generator(seed);
+	uniform_int_distribution<int> dist(a_ASCII, z_ASCII);
+
+	for (int i = 0; i < word_to_guess_length; ++i)
+	{	
+		random_vector[i] = dist(generator);
+	}
+	
+	return random_vector;
+}
+
+void start_game()
+{
+	vector<char> my_word = random_vector<char>();
+	cout << "Random vector: " << my_word << endl;
+	char program_finish_sign = '.';
+	while (true)
+	{
+		vector<char> letters;
+		char last_letter = read_letters(my_word, letters, program_finish_sign); //Stores input in a vector. Returns actual character and checks if it is '.' which finishes a program.
+
+		if (last_letter == program_finish_sign) break;
+		else
+		{
+			bool finish = evaluate_user_input_word(my_word, letters); //Check user input accuracy with word to find.
+			if (finish) break;
+		}
+	}
+}
+
+
+char read_letters(vector<char> & to_guess, vector<char> & letters, char program_finish_sign)
+{
+	char test = ' ';
+	int letters_counter = 0;
+
+	while (letters_counter != to_guess.size())
+	{
+		++letters_counter;
+		cin >> test;
+		if (test == program_finish_sign) break;
+		cin.putback(test);
+		get_letter(letters);
+	}
+	return test;
+}
+
+bool evaluate_user_input_word(vector<char> & to_guess, vector<char> & letters)
+{
+	bool is_word_found = false;
+	Bulls_and_cows bulls_and_cows = cacluate_hits(to_guess, letters);
+
+	if (bulls_and_cows.bulls == to_guess.size())
+	{
+		cout << "Bravo you guessed!" << endl;
+		is_word_found = true;
+	}
+	else
+	{
+		cout << "Considered input word: \"" << letters << "\"" << endl;
+		cout << "Bull " << bulls_and_cows.bulls << " Cow " << bulls_and_cows.cows << endl;
+		cin.ignore(INT_MAX, '\n');
+	}
+
+	return is_word_found;
+}
+
 
 bool contains(char letter, vector<char> & letters)
 {
