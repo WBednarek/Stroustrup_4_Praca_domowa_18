@@ -105,7 +105,8 @@ bool article()
 	{
 		word = string_stream.get(); //Gets the next word in sentence (after article)
 	}
-	string_stream.putback(word);
+	string_stream.putback(word); //Stores the next word to be accessible for the next get() function usage (the function of our Stream_of_string class). 
+	//We are using get() function almost everywhere, in every function on this program on unfortunately global object Stream_of_string string_stream.
 	return true;
 }
 
@@ -122,8 +123,7 @@ bool noun()
 			word = string_stream.get(); //Gets the next word in sentence (after noun)
 			break;
 		}
-	string_stream.putback(word); //Stores the next word to be accessible for the next get() function usage (the function of our Stream_of_string class). 
-	//We are using get() function almost everywhere, in every function on this program on unfortunately global object Stream_of_string string_stream.
+	string_stream.putback(word);
 	return is_noun;
 }
 

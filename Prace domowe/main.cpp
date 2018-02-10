@@ -16,6 +16,7 @@
 #include "Rozdzial_6\cwiczenia_6.h"
 #include "Rozdzial_6\Wyprobuj_6_9.h"
 #include "Rozdzial_6\Praca_domowa_6.h"
+#include "Rozdzial_6\Praca_domowa_R6_8.h"
 
 
 
@@ -24,7 +25,9 @@ int main()
 
 	system("chcp 1250");
 	
-	praca_domowa_R6_6();
+	praca_domowa_R6_8();
+
+	//praca_domowa_R6_6();
 	//cwiczenia_6_1();
 	//wyproboj_6_9();
 	//praca_domowa_13();

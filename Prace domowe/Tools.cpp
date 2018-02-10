@@ -12,6 +12,18 @@ void display_vector(vector<T> & to_disp)
 }
 
 
+//Also display vector but using << operator
+template<typename T>
+ostream & operator<< (ostream & output, vector<T> & to_disp)
+{
+	for (T disp : to_disp)
+	{
+		output << disp << " ";
+	}
+	return output;
+}
+
+
 string tolowercase(string tolower)
 {
 	for (int i = 0; i < tolower.length(); ++i)
