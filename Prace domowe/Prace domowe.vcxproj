@@ -146,6 +146,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Rozdzial_6\Praca_domowa_R6_10.h" />
     <ClInclude Include="Rozdzial_6\Praca_domowa_R6_8.h" />
     <ClInclude Include="Rozdzial_6\Praca_domowa_6.h" />
     <ClInclude Include="Rozdzial_5\Praca_domowa.h" />
@@ -164,6 +165,7 @@
     <ClInclude Include="Rozdzial_6\Wypróbuj_6_6_original.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Rozdzial_6\Praca_domowa_R6_10.cpp" />
     <ClCompile Include="Rozdzial_6\Praca_domowa_R6_8.cpp" />
     <ClCompile Include="Rozdzial_6\Praca_domowa_6.cpp" />
     <ClCompile Include="Rozdzial_5\Praca_domowa.cpp" />

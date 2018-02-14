@@ -18,6 +18,8 @@
 #include "Rozdzial_6\Praca_domowa_6.h"
 #include "Rozdzial_6\Praca_domowa_R6_8.h"
 
+#include "Rozdzial_6\Praca_domowa_R6_10.h"
+
 
 
 int main()
@@ -25,11 +27,20 @@ int main()
 
 	system("chcp 1250");
 	
-	praca_domowa_R6_8();
+	int factorial_num = 0;
+	cout << "Input a number to factorial " << endl;
+	cin >> factorial_num;
+	cout << factorial(factorial_num) << endl;
 
+	/**
+	Rozdzia³ 6
+	//praca_domowa_R6_8();
 	//praca_domowa_R6_6();
 	//cwiczenia_6_1();
 	//wyproboj_6_9();
+	*/
+	
+
 	//praca_domowa_13();
 	//praca_domowa_12();
 	//praca_domowa_8();
