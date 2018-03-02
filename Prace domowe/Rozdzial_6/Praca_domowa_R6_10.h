@@ -11,7 +11,56 @@ At the end program returns result of selected by user operation.
 
 */
 
+
+
+
+
 long long factorial(int number);
+
+long long permutation(int a, int b);
+
+long long combination(int a, int b);
+
+
+void clean_up_mess(char sign_to_check);
+
+bool characters_ignore(char sign_to_check);
+
+int calculate();
+
+void select_operation(int a, int b, char selection);
+
+class Token
+{
+private:
+	
+	int	value;
+public:
+	char type;
+	Token(char type, int value);
+	Token(int value);
+	Token();
+	char get_type();
+	int get_value();
+};
+
+
+class Token_stream
+{
+private:
+	bool full;
+	Token buffer;
+public:
+	Token get();
+	void putback(Token t);
+	Token_stream();
+	void ignore(char sign_to_find);
+};
+
+
+
+
+
 
 
 
@@ -56,11 +105,25 @@ long long combination(int a, int b)
 
 class Token
 {
+private:
 type
 value
+public:
 Token(type, value) : type(type), value(value)
 Token(value) : value(value)
+get_type();
+get_value();
 };
+
+char Token::get_type()
+{
+	return type;
+}
+
+char Token::get_value()
+{
+return value;
+}
 
 class Token_stream
 {
@@ -118,10 +181,10 @@ while(cin)
 {	
 	cout << "Input two numbers with spaces, type "end" to finish program" << endl;
 	Token t = ts.get();
-	if(t.type == end) exit_program;
+	if(t.get_type() == end) exit_program;
 	ts.putback(t);
-	int a = ts.get();
-	int b = ts.get();
+	int a = ts.get_value();
+	int b = ts.get_value();
 	if(a < 0 || b < 0) error("Inputted by user numbers for permuation/combination are less than 0");
 	select_operation(a, b);
 }

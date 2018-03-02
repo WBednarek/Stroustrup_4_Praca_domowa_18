@@ -26,18 +26,15 @@ int main()
 {
 
 	system("chcp 1250");
-	
-	int factorial_num = 0;
-	cout << "Input a number to factorial " << endl;
-	cin >> factorial_num;
-	cout << factorial(factorial_num) << endl;
+	//wyproboj_6_9();
+	calculate();
 
 	/**
 	Rozdzia³ 6
 	//praca_domowa_R6_8();
 	//praca_domowa_R6_6();
 	//cwiczenia_6_1();
-	//wyproboj_6_9();
+	
 	*/
 	
 

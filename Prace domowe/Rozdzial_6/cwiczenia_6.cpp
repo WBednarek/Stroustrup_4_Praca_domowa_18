@@ -23,6 +23,7 @@ Happy hunting!
 
 
 
+/*
 
 
 #include "cwiczenia_6.h"
@@ -33,9 +34,9 @@ Happy hunting!
 Token_stream ts;
 
 Token::Token(char ch)    // make a Token from a char
-		:kind(ch), value(0) { }
+:kind(ch), value(0) { }
 Token::Token(char ch, double val)     // make a Token from a char and a double
-		:kind(ch), value(val) { }
+:kind(ch), value(val) { }
 
 
 
@@ -43,48 +44,48 @@ Token::Token(char ch, double val)     // make a Token from a char and a double
 
 // The constructor just sets full to indicate that the buffer is empty:
 Token_stream::Token_stream()
-	:buffer(0), full(false) { }    // no Token in buffer
+:buffer(0), full(false) { }    // no Token in buffer
 
 //------------------------------------------------------------------------------
 
 // The putback() member function puts its argument back into the Token_stream's buffer:
 void Token_stream::putback(Token t)
 {
-	if (full) error("putback() into a full buffer");
-	buffer = t;       // copy t to buffer
-	full = true;      // buffer is now full
+if (full) error("putback() into a full buffer");
+buffer = t;       // copy t to buffer
+full = true;      // buffer is now full
 }
 
 //------------------------------------------------------------------------------
 
 Token Token_stream::get()
 {
-	if (full) {       // do we already have a Token ready?
-					  // remove token from buffer
-		full = false;
-		return buffer;
-	}
+if (full) {       // do we already have a Token ready?
+// remove token from buffer
+full = false;
+return buffer;
+}
 
-	char ch;
-	cin >> ch;    // note that >> skips whitespace (space, newline, tab, etc.)
+char ch;
+cin >> ch;    // note that >> skips whitespace (space, newline, tab, etc.)
 
-	switch (ch) {
-	case '=':    // for "print"
-	case 'x':    // for "quit"
-	case '(': case ')': case '*': case '/': case '+': case '-':
-		return Token(ch);        // let each character represent itself
-	case '.':
-	case '0': case '1': case '2': case '3': case '4':
-	case '5': case '6': case '7': case '8': case '9':
-	{
-		cin.putback(ch);         // put digit back into the input stream
-		double val;
-		cin >> val;              // read a floating-point number
-		return Token('8', val);   // let '8' represent "a number"
-	}
-	default:
-		error("Bad token");
-	}
+switch (ch) {
+case '=':    // for "print"
+case 'x':    // for "quit"
+case '(': case ')': case '*': case '/': case '+': case '-':
+return Token(ch);        // let each character represent itself
+case '.':
+case '0': case '1': case '2': case '3': case '4':
+case '5': case '6': case '7': case '8': case '9':
+{
+cin.putback(ch);         // put digit back into the input stream
+double val;
+cin >> val;              // read a floating-point number
+return Token('8', val);   // let '8' represent "a number"
+}
+default:
+error("Bad token");
+}
 }
 
 
@@ -93,24 +94,24 @@ Token Token_stream::get()
 // deal with + and -
 double expression()
 {
-	double left = term();      // read and evaluate a Term
-	Token t = ts.get();        // get the next token from token stream
+double left = term();      // read and evaluate a Term
+Token t = ts.get();        // get the next token from token stream
 
-	while (true) {
-		switch (t.kind) {
-		case '+':
-			left += term();    // evaluate Term and add
-			t = ts.get();
-			break;
-		case '-':
-			left -= term();    // evaluate Term and subtract
-			t = ts.get();
-			break;
-		default:
-			ts.putback(t);     // put t back into the token stream
-			return left;       // finally: no more + or -: return the answer
-		}
-	}
+while (true) {
+switch (t.kind) {
+case '+':
+left += term();    // evaluate Term and add
+t = ts.get();
+break;
+case '-':
+left -= term();    // evaluate Term and subtract
+t = ts.get();
+break;
+default:
+ts.putback(t);     // put t back into the token stream
+return left;       // finally: no more + or -: return the answer
+}
+}
 }
 
 
@@ -119,48 +120,48 @@ double expression()
 // deal with *, /, and %
 double term()
 {
-	double left = primary();
-	Token t = ts.get();        // get the next token from token stream
+double left = primary();
+Token t = ts.get();        // get the next token from token stream
 
-	while (true) {
-		switch (t.kind) {
-		case '*':
-			left *= primary();
-			t = ts.get();
-			break;
-		case '/':
-		{
-			double d = primary();
-			if (d == 0) error("divide by zero");
-			left /= d;
-			t = ts.get();
-			break;
-		}
-		default:
-			ts.putback(t);     // put t back into the token stream
-			return left;
-		}
-	}
+while (true) {
+switch (t.kind) {
+case '*':
+left *= primary();
+t = ts.get();
+break;
+case '/':
+{
+double d = primary();
+if (d == 0) error("divide by zero");
+left /= d;
+t = ts.get();
+break;
+}
+default:
+ts.putback(t);     // put t back into the token stream
+return left;
+}
+}
 }
 
 //------------------------------------------------------------------------------
 
 double primary()
 {
-	Token t = ts.get();
-	switch (t.kind) {
-	case '(':    // handle '(' expression ')'
-	{
-		double d = expression();
-		t = ts.get();
-		if (t.kind != ')') error("')' expected)");
-			return d;
-	}
-	case '8':            // we use '8' to represent a number
-		return t.value;  // return the number's value
-	default:
-		error("primary expected");
-	}
+Token t = ts.get();
+switch (t.kind) {
+case '(':    // handle '(' expression ')'
+{
+double d = expression();
+t = ts.get();
+if (t.kind != ')') error("')' expected)");
+return d;
+}
+case '8':            // we use '8' to represent a number
+return t.value;  // return the number's value
+default:
+error("primary expected");
+}
 }
 
 
@@ -170,35 +171,40 @@ double primary()
 int cwiczenia_6_1()
 try
 {
-	cout << "Witaj w prostym kalkulatorze.\nW wyra¿eniach stosuj liczny zmiennoprzecinkowe." << endl;
-	cout << endl;
-	cout << "Program obs³ubuje operatory '(', ')', '*', '/', '+', '-'"<< endl;
-	cout << "Drukowanie wyniku wstaw na koñcu dzia³ania '=' np. wpisz \"2+3=\" "<< endl;
-	cout << "Koñczenie programu wpisz 'x' " << endl;
-	double val = 0;
-	
-	while (cin) {
-		
-		Token t = ts.get();
+cout << "Witaj w prostym kalkulatorze.\nW wyra¿eniach stosuj liczny zmiennoprzecinkowe." << endl;
+cout << endl;
+cout << "Program obs³ubuje operatory '(', ')', '*', '/', '+', '-'"<< endl;
+cout << "Drukowanie wyniku wstaw na koñcu dzia³ania '=' np. wpisz \"2+3=\" "<< endl;
+cout << "Koñczenie programu wpisz 'x' " << endl;
+double val = 0;
 
-		if (t.kind == 'x') break; // 'x' for quit
-		if (t.kind == '=')        // ';' for "print now"
-			cout << "=" << val << '\n';
-		else
-			ts.putback(t);
-		val = expression();
-	}
-	keep_window_open();
+while (cin) {
+
+Token t = ts.get();
+
+if (t.kind == 'x') break; // 'x' for quit
+if (t.kind == '=')        // ';' for "print now"
+cout << "=" << val << '\n';
+else
+ts.putback(t);
+val = expression();
+}
+keep_window_open();
 }
 catch (exception& e) {
-	cerr << "error: " << e.what() << '\n';
-	keep_window_open();
-	return 1;
+cerr << "error: " << e.what() << '\n';
+keep_window_open();
+return 1;
 }
 catch (...) {
-	cerr << "Oops: unknown exception!\n";
-	keep_window_open();
-	return 2;
+cerr << "Oops: unknown exception!\n";
+keep_window_open();
+return 2;
 }
 
+
+
+
+
+*/
 
