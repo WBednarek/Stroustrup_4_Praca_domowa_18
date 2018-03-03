@@ -9,16 +9,18 @@
 #include "Rozdzial_5\Praca_domowa.h"
 #include "Rozdzial_5\Wypróbuj_Rozdzia³_5.h"
 #include "Rozdzial_6\Wypróbuj_6_6_original.h"
-*/
-
-#include "stdafx.h"
-#include "../../../../std_lib_facilities_v2.h"
 #include "Rozdzial_6\cwiczenia_6.h"
 #include "Rozdzial_6\Wyprobuj_6_9.h"
 #include "Rozdzial_6\Praca_domowa_6.h"
 #include "Rozdzial_6\Praca_domowa_R6_8.h"
 
+*/
+
+#include "stdafx.h"
+#include "../../../../std_lib_facilities_v2.h"
 #include "Rozdzial_6\Praca_domowa_R6_10.h"
+#include "Rozdzial_6\Praca_domowa_R6_10_v2.h"
+
 
 
 

@@ -1,7 +1,9 @@
 #include "stdafx.h"
-#include "Praca_domowa_R6_10.h"
+#include "Praca_domowa_R6_10_v2.h"
 
 
+
+/*
 
 
 
@@ -91,13 +93,8 @@ int Token::get_value()
 Token Token_stream::get()
 {
 	if (full) return buffer;
-
 	const char exit = 'e';
 	const char print = ';';
-	const char number = '8';
-
-	const char permutation_option = 'p';
-	const char combination_option = 'c';
 	int character_option = 5;
 	char input = ' ';
 	cin >> input;
@@ -120,14 +117,6 @@ Token Token_stream::get()
 		cin >> in;
 		return Token(in);
 	}
-	case permutation_option:
-	{
-		return Token(permutation_option, character_option);
-	}
-	case combination_option:
-	{
-		return Token(combination_option, character_option);
-	}
 	default:
 		error("Wrong token");
 		break;
@@ -146,30 +135,13 @@ Token_stream::Token_stream() : full(false)
 }
 
 
-
-
-void Token_stream::ignore(char sign_to_find)
-{
-
-	if (full && buffer.get_type() == sign_to_find)
-	{
-		full = false;
-		return;
-	}
-	full = false;
-
-	char to_check = ' ';
-	while (cin >> to_check)
-	{
-		if (to_check == sign_to_find) return;
-	}
-
-}
-
-void select_operation(int a, int b, char selection)
+void select_operation(int a, int b)
 {
 	const char permutation_option = 'p';
 	const char combination_option = 'c';
+	cout << "Select type of operation\ninput 'c' for combitation\ninput'p' for permutation" << endl;
+	char selection = ' ';
+	cin >> selection;
 	switch (selection)
 	{
 	case permutation_option:
@@ -185,16 +157,15 @@ void select_operation(int a, int b, char selection)
 }
 
 
-void clean_up_mess(char sign_to_check)
+void clean_up_mess()
 {
-	ts.ignore(sign_to_check);
+	cin.ignore(numeric_limits<int>::max(), '\n'); //Skips number of INT_MAX symbols to the next line.
 }
 
 
 bool handle_input(char print, char exit)
 {
 
-	
 	Token t;
 	t = ts.get();
 	if (t.get_type() == exit)
@@ -205,18 +176,9 @@ bool handle_input(char print, char exit)
 	int a = t.get_value();
 	t = ts.get();
 	int b = t.get_value();
-	t = ts.get();
-	char c = t.get_type();
-	if (a < b) error("a has to be bigger than b");
-		
-
+	if (a < b)	error("a has to be bigger than b");
 	if (a < 0 || b < 0) error("Inputted by user numbers for permuation/combination are less than 0");
-
-	char to_print = ts.get().type;
-	if (to_print == print)
-	{
-		select_operation(a, b, c);
-	}
+	select_operation(a, b);
 
 	return true;
 }
@@ -225,25 +187,24 @@ int calculate()
 {
 	const char exit = 'e';
 	const char print = ';';
-	cout << "Perform input" << endl;
-	cout << "After inputting two numbers select operation to perform\n c - combination\n p - permutation" << endl;
-	cout << "Type \"e\" to finish program, type \";\" to print output" << endl;
-		while (cin)
-		{
-			try {
-				cout << "Enter data, example input: 12 3 p ;\ne - exit" << endl;
-				if (!handle_input(print, exit))
-				{
-					return -1;
-				}
+	
+	cout << "Example input: 12 3" << endl;
+	while (cin)
+	{
+		try {
+			cout << "Type \"e\" to finish program" << endl;
+			cout << "Input two numbers with spaces" << endl;
+			if (!handle_input(print, exit))
+			{
+				return -1;
+			}
 
 		}
 		catch (exception & e)
 		{
 			cerr << e.what() << endl;
-			cout << "Input values again, if software doesn't respond type \";\"" << endl ;
-			clean_up_mess(print);
-			cout << endl;
+			cout << "Input values again" << endl << endl;
+			clean_up_mess();
 		}
 		catch (...)
 		{
@@ -252,29 +213,10 @@ int calculate()
 		}
 
 	}
-	
+
 	return 0;
 
 }
 
-
-
-
-/*
-My solution of igrone() funtion
-In my solution it os not member of Token_stream() class.
-In my solution I am not checking buffer in Token_stream, it is disadvantage.
-
-bool characters_ignore(char sign_to_check)
-{
-char to_check = ' ';
-
-while (cin >> to_check)
-{
-if (to_check == sign_to_check) return true;
-}
-
-return true;
-}
 
 */

@@ -11,20 +11,13 @@ At the end program returns result of selected by user operation.
 
 */
 
-
-
-
-
 long long factorial(int number);
 
 long long permutation(int a, int b);
 
 long long combination(int a, int b);
 
-
 void clean_up_mess(char sign_to_check);
-
-bool characters_ignore(char sign_to_check);
 
 bool handle_input(char print, char exit);
 
@@ -58,6 +51,7 @@ public:
 	Token_stream();
 	void ignore(char sign_to_find);
 };
+
 
 
 
