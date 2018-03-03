@@ -215,41 +215,54 @@ void clean_up_mess(char sign_to_check)
 }
 
 
+bool handle_input(char print, char exit)
+{
+
+	
+	Token t;
+	t = ts.get();
+	if (t.get_type() == exit)
+	{
+		cout << "exiting program" << endl;
+		return false;
+	}
+	int a = t.get_value();
+	t = ts.get();
+	int b = t.get_value();
+	t = ts.get();
+	char c = t.get_type();
+	if (a < b)
+	{
+		cout << "a has to be bigger than b, input values again\n" << endl;
+		calculate();
+	}
+
+	if (a < 0 || b < 0) error("Inputted by user numbers for permuation/combination are less than 0");
+
+	char to_print = ts.get().type;
+	if (to_print == print)
+	{
+		select_operation(a, b, c);
+	}
+
+	return true;
+}
 
 int calculate()
 {
 	const char exit = 'e';
 	const char print = ';';
-	
+	cout << "Input two numbers with spaces" << endl;
+	cout << "After inputting two numbers select operation to perform\n c - combination\n p - permutation" << endl;
+	cout << "Type \"e\" to finish program, type \";\" to print output" << endl;
+	cout << "Example input: 12 3 p ;" << endl;
 		while (cin)
 		{
 			try {
-			cout << "Input two numbers with spaces, type \"end\" to finish program" << endl;
-
-			Token t;
-			t = ts.get();
-			int a = t.get_value();
-			t = ts.get();
-			int b = t.get_value();
-			t = ts.get();
-			char c = t.get_type();
-			if (a < b)
-			{
-				cout << "a has to be bigger than b, input values again\n" << endl;
-				calculate();
-			}
-
-			if (a < 0 || b < 0) error("Inputted by user numbers for permuation/combination are less than 0");
-
-			char to_print = ts.get().type;
-			if (to_print != print)
-			{
-				cout << "Wrong input, try again" << endl;
-			}
-			else
-			{
-				select_operation(a, b, c);
-			}
+				if (!handle_input(print, exit))
+				{
+					return -1;
+				}
 
 		}
 		catch (exception & e)

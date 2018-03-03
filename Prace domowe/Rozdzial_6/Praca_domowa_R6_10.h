@@ -26,6 +26,8 @@ void clean_up_mess(char sign_to_check);
 
 bool characters_ignore(char sign_to_check);
 
+bool handle_input(char print, char exit);
+
 int calculate();
 
 void select_operation(int a, int b, char selection);
