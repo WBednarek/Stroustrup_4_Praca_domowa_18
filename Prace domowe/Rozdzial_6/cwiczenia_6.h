@@ -1,5 +1,6 @@
 #pragma once
 #include "../stdafx.h"
+#include "../std_lib_facilities_v2.h"
 
 //
 // this is example code from chapter 6.7 "trying the second version" of
@@ -22,7 +23,6 @@ happy hunting!
 
 
 
-#include "../std_lib_facilities_v2.h"
 
 //------------------------------------------------------------------------------
 

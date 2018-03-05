@@ -13,30 +13,33 @@
 #include "Rozdzial_6\Wyprobuj_6_9.h"
 #include "Rozdzial_6\Praca_domowa_6.h"
 #include "Rozdzial_6\Praca_domowa_R6_8.h"
-
+#include "Rozdzial_6\Praca_domowa_R6_10.h"
+#include "Rozdzial_6\Praca_domowa_R6_10_v2.h"
 */
 
 #include "stdafx.h"
 #include "../../../../std_lib_facilities_v2.h"
-#include "Rozdzial_6\Praca_domowa_R6_10.h"
-#include "Rozdzial_6\Praca_domowa_R6_10_v2.h"
 
-
+#include "Rozdzial_7\cwiczenia_7.h"
 
 
 int main()
 {
 
 	system("chcp 1250");
-	//wyproboj_6_9();
-	calculate();
+	cwiczenia_7();
+
+
+
+
 
 	/**
 	Rozdzia³ 6
 	//praca_domowa_R6_8();
 	//praca_domowa_R6_6();
 	//cwiczenia_6_1();
-	
+	//wyproboj_6_9();
+	//calculate();
 	*/
 	
 

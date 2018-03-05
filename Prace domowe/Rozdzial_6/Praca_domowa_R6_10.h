@@ -11,6 +11,10 @@ At the end program returns result of selected by user operation.
 
 */
 
+
+
+/*
+
 long long factorial(int number);
 
 long long permutation(int a, int b);
@@ -53,7 +57,7 @@ public:
 };
 
 
-
+*/
 
 
 

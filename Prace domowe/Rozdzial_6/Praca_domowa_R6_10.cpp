@@ -3,6 +3,9 @@
 
 
 
+/*
+
+
 
 
 Token_stream ts; //!!! GLOBAL VARIABLE, but it works with Stroustrup PPP Chapter 6
@@ -256,6 +259,11 @@ int calculate()
 	return 0;
 
 }
+
+
+*/
+
+
 
 
 
