@@ -6,7 +6,7 @@ struct Token {
 	char kind;
 	double value;
 	string name;
-	Token(char ch) :kind(ch), value(0) { }
+	Token(char ch);
 	Token(char ch, double val);
 };
 

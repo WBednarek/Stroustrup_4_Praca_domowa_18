@@ -18,9 +18,19 @@ const char print = ';';
 const char number = '8';
 const char name = 'a';
 
+
+Token::Token(char ch) : kind(ch), value(0)
+{
+}
+
+Token::Token(char ch, double val) : kind(ch), value(val)
+{
+}
+
+
 Token Token_stream::get()
 {
-	if (full) { full = false; return buffer; }
+	if (full) { full = false; return buffer; } // check buffer
 	char ch;
 	cin >> ch;
 	switch (ch) {
@@ -45,16 +55,17 @@ Token Token_stream::get()
 	case '7':
 	case '8':
 	case '9':
-	{	cin.unget();
+	{	cin.unget(); // this function used to be named putback()
 	double val;
 	cin >> val;
 	return Token(number, val);
 	}
+	 
 	default:
 		if (isalpha(ch)) {
 			string s;
 			s += ch;
-			while (cin.get(ch) && (isalpha(ch) || isdigit(ch))) s = ch;
+			while (cin.get(ch) && (isalpha(ch) || isdigit(ch))) s += ch; // 2nd logical mistake, string should be made of chars, so s += ch;
 			cin.unget();
 			if (s == "let") return Token(let);
 			if (s == "quit") return Token(quit); // 1st logical mistake catched
@@ -64,12 +75,14 @@ Token Token_stream::get()
 	}
 }
 
+//Store variable in the buffer
 void Token_stream::unget(Token t)
 {
 	buffer = t; 
 	full = true;
 }
 
+//Ignores all charaters until c variable is found
 void Token_stream::ignore(char c)
 {
 	if (full && c == buffer.kind) {
@@ -89,7 +102,7 @@ struct Variable {
 	Variable(string n, double v) :name(n), value(v) { }
 };
 
-vector<Variable> names;
+vector<Variable> names; // Stores names of declated variables in calculator
 
 double get_value(string s)
 {
@@ -120,24 +133,27 @@ Token_stream ts;
 
 double primary()
 {
-	Token t = ts.get();
+	Token t = ts.get(); // get the next value form cin stream
 	switch (t.kind) {
 	case '(':
-	{	double d = expression();
+	{	
+	double d = expression(); // ! What to do with d? 3rd logical miatake
 	t = ts.get();
-	if (t.kind != ')') error("'(' expected");
+	if (t.kind != ')') error("'(' expected"); //Brackets need to be closed
+	return d; //3rd logical mistake, nothing was returned
 	}
 	case '-':
-		return -primary();
+		return - primary();
 	case number:
 		return t.value;
 	case name:
-		return get_value(t.name);
+		return get_value(t.name); // returns name stored in names vector
 	default:
 		error("primary expected");
 	}
 }
 
+//Handling multiplication and division
 double term()
 {
 	double left = primary();
@@ -154,12 +170,13 @@ double term()
 		break;
 		}
 		default:
-			ts.unget(t);
+			ts.unget(t); 
 			return left;
 		}
 	}
 }
 
+//Handling addition and subtraction
 double expression()
 {
 	double left = term();
@@ -179,10 +196,11 @@ double expression()
 	}
 }
 
+//Allows to declare variables names in calculator e.g. let x = 23;
 double declaration()
 {
 	Token t = ts.get();
-	if (t.kind != 'a') error("name expected in declaration"); // magic constant
+	if (t.kind != name) error("name expected in declaration"); //'a' is magic constant, 1st style mistake, (should I consider it as 4th logical mistake ?)
 	string name = t.name;
 	if (is_declared(name)) error(name, " declared twice");
 	Token t2 = ts.get();
@@ -192,6 +210,7 @@ double declaration()
 	return d;
 }
 
+//Checks if there is variable declaration
 double statement()
 {
 	Token t = ts.get();
@@ -200,7 +219,7 @@ double statement()
 		return declaration();
 	default:
 		ts.unget(t);
-		return expression();
+		return expression(); //Just calculate expression
 	}
 }
 
@@ -212,12 +231,13 @@ void clean_up_mess()
 const string prompt = "> ";
 const string result = "= ";
 
+// I don't know why does it work
 void calculate()
 {
 	while (true) try {
 		cout << prompt;
 		Token t = ts.get();
-		while (t.kind == print) t = ts.get();
+		while (t.kind == print) t = ts.get();  // Ignores all print signs (I assume). Software needs some additional symbol after expression to print value, so if you put: 88+7p it gonna work but it will make an error.
 		if (t.kind == quit) return;
 		ts.unget(t);
 		cout << result << statement() << endl;
@@ -237,18 +257,14 @@ int cwiczenia_7()
 	catch (exception& e) {
 		cerr << "exception: " << e.what() << endl;
 		char c;
-		while (cin >> c&& c != ';');
+		while (cin >> c&& c != print); // ';' was magic constant
 		return 1;
 	}
 	catch (...) {
 		cerr << "exception\n";
 		char c;
-		while (cin >> c && c != ';');
+		while (cin >> c && c != print); // ';' was magic constant
 		return 2;
 	}
 }
 
-
-Token::Token(char ch, double val) : kind(ch), value(val)
-{
-}
