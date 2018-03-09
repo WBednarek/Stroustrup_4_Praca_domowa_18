@@ -7,6 +7,7 @@ struct Token {
 	double value;
 	string name;
 	Token(char ch);
+	Token(char ch, string name);
 	Token(char ch, double val);
 };
 
@@ -41,4 +42,6 @@ void clean_up_mess();
 void calculate();
 
 int cwiczenia_7();
+
+void define_name(string name, double value);
 

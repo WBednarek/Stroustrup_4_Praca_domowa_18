@@ -23,9 +23,15 @@ Token::Token(char ch) : kind(ch), value(0)
 {
 }
 
+Token::Token(char ch, string name) : kind(ch), name(name) // 5th logical mistake, no name constructor
+{
+}
+
 Token::Token(char ch, double val) : kind(ch), value(val)
 {
 }
+
+
 
 
 Token Token_stream::get()
@@ -69,7 +75,7 @@ Token Token_stream::get()
 			cin.unget();
 			if (s == "let") return Token(let);
 			if (s == "quit") return Token(quit); // 1st logical mistake catched
-			return Token(name); // 1st compiling mistake catched
+			return Token(name,s); // 1st compiling mistake catched
 		}
 		error("Bad token");
 	}
@@ -113,7 +119,7 @@ double get_value(string s)
 
 void set_value(string s, double d)
 {
-	for (int i = 0; i <= names.size(); ++i)
+	for (int i = 0; i < names.size(); ++i)
 		if (names[i].name == s) {
 			names[i].value = d;
 			return;
@@ -235,6 +241,7 @@ const string result = "= ";
 void calculate()
 {
 	while (true) try {
+		
 		cout << prompt;
 		Token t = ts.get();
 		while (t.kind == print) t = ts.get();  // Ignores all print signs (I assume). Software needs some additional symbol after expression to print value, so if you put: 88+7p it gonna work but it will make an error.
@@ -248,9 +255,17 @@ void calculate()
 	}
 }
 
+
+void define_name(string name, double value)
+{
+	names.push_back(Variable(name, value));
+}
+
+
 int cwiczenia_7()
 {
 	try {
+		define_name("k", 1000);
 		calculate();
 		return 0;
 	}
