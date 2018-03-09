@@ -144,6 +144,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
+    <Text Include="Rozdzial_7\Test_input_cwiczenie_7.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Rozdzial_7\cwiczenia_7.h" />
