@@ -17,6 +17,7 @@ const char quit = 'Q';
 const char print = ';';
 const char number = '8';
 const char name = 'a';
+const char sqrt_option = 'S';
 
 
 Token::Token(char ch) : kind(ch), value(0)
@@ -75,6 +76,7 @@ Token Token_stream::get()
 			cin.unget();
 			if (s == "let") return Token(let);
 			if (s == "quit") return Token(quit); // 1st logical mistake catched
+			if (s == "sqrt") return Token(sqrt_option);
 			return Token(name,s); // 1st compiling mistake catched
 		}
 		error("Bad token");
@@ -145,15 +147,23 @@ double primary()
 	{	
 	double d = expression(); // ! What to do with d? 3rd logical miatake
 	t = ts.get();
-	if (t.kind != ')') error("'(' expected"); //Brackets need to be closed
+	if (t.kind != ')') error("'(' expected"); //Brackets needed to be closed
 	return d; //3rd logical mistake, nothing was returned
 	}
 	case '-':
 		return - primary();
+	case '+':
+			return +primary();
 	case number:
-		return t.value;
+		return t.value; //returns single inputted number to be displayed
 	case name:
-		return get_value(t.name); // returns name stored in names vector
+		return get_value(t.name); // returns value of defined variable stored in names vector
+	case sqrt_option:
+	{
+			double d = expression();
+			if (d < 0) error("Sqrt function argument less than 0");
+			return sqrt(d);
+	}
 	default:
 		error("primary expected");
 	}
@@ -175,6 +185,8 @@ double term()
 		left /= d;
 		break;
 		}
+		
+			
 		default:
 			ts.unget(t); 
 			return left;

@@ -1,0 +1,40 @@
+Chapter 7 Exercise 7 Grammar
+
+Calculation:
+	Statement
+	Print
+	Quit
+	Calculation Statement
+
+Statement:
+	Declaration
+	Expression
+
+Declaration:
+	"let" Name "=" Expression
+
+Expression:
+	Term
+	Term "+" Term
+	Term "-" Term
+
+Term:
+	Primary
+	Primary "*" Primary
+	Primary "/" Primary
+	
+Primary:
+	"(" Expression ")"
+	"-" Primary
+	"+" Primary
+	Number
+	Name
+	"sqrt" "(" Expression ")"
+
+Number:
+	floating-point-literal
+
+Name:
+	string-value
+	
+	
