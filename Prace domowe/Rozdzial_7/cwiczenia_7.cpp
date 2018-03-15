@@ -18,6 +18,7 @@ const char print = ';';
 const char number = '8';
 const char name = 'a';
 const char sqrt_option = 'S';
+const char pow_option = 'P';
 
 
 Token::Token(char ch) : kind(ch), value(0)
@@ -50,6 +51,7 @@ Token Token_stream::get()
 	case '%':
 	case ';':
 	case '=':
+	case ',': // To use in pow(x, i) function
 		return Token(ch);
 	case '.':
 	case '0':
@@ -76,6 +78,7 @@ Token Token_stream::get()
 			cin.unget();
 			if (s == "let") return Token(let);
 			if (s == "quit") return Token(quit); // 1st logical mistake catched
+			if (s == "pow") return Token(pow_option);
 			if (s == "sqrt") return Token(sqrt_option);
 			return Token(name,s); // 1st compiling mistake catched
 		}
@@ -158,11 +161,31 @@ double primary()
 		return t.value; //returns single inputted number to be displayed
 	case name:
 		return get_value(t.name); // returns value of defined variable stored in names vector
+	case pow_option:
+	{
+		t = ts.get();
+		if (t.kind == '(')
+		{
+			double x = expression();
+			t = ts.get();
+			if (t.kind != ',') error("No , in pow(x, i) function");
+			double i = expression();
+			t = ts.get();
+			if (t.kind != ')') error("No closing bracket ')' in pow(x, i) function");
+			return calculate_pow(x, i);
+		}
+	}	
 	case sqrt_option:
 	{
+		t = ts.get();
+		if (t.kind == '(')
+		{
 			double d = expression();
-			if (d < 0) error("Sqrt function argument less than 0");
+			t = ts.get();
+			if (t.kind != ')') error("No closing bracket ')' in sqrt function");
+			if (d < 0) error("Sqrt function argument is less than 0");
 			return sqrt(d);
+		}
 	}
 	default:
 		error("primary expected");
@@ -184,9 +207,7 @@ double term()
 		if (d == 0) error("divide by zero");
 		left /= d;
 		break;
-		}
-		
-			
+		}		
 		default:
 			ts.unget(t); 
 			return left;
@@ -271,6 +292,34 @@ void calculate()
 void define_name(string name, double value)
 {
 	names.push_back(Variable(name, value));
+}
+
+double calculate_pow(double x, double i)
+{
+	int ii = int(i);
+	if (abs(ii - i) != 0) error("In pow(x, i) function \"i\" is not an integer");
+	if (i == 0) return x;
+	//if (i < 0) error("In pow(x, i) function \"i\" cannot be less than 0");
+	double pow_result = 0.0;
+	if (i < 0)
+	{
+		pow_result = (1.0 / x); // Remember about having at least one dot in some of numbers in double value e.g. 2.0 instead of 2
+		int k = abs(i);
+		for (int j = 1; j < k; ++j) // Loop starts from one since pow_result is like powered to minus one, since the begining
+		{
+			pow_result *= (1.0 / x); 
+		}
+	}
+	else
+	{
+		pow_result = x;
+		for (int j = 1; j < i; ++j) // Loop starts from one since pow_result is like powered to one, since the begining
+		{
+			pow_result *= x;
+		}
+	}
+	
+	return pow_result;
 }
 
 

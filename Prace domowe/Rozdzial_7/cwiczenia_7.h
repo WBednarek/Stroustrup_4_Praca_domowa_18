@@ -45,3 +45,5 @@ int cwiczenia_7();
 
 void define_name(string name, double value);
 
+double calculate_pow(double x, double i);
+
