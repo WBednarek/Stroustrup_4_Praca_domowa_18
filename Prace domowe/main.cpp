@@ -21,19 +21,20 @@
 #include "../../../../std_lib_facilities_v2.h"
 
 #include "Rozdzial_7\cwiczenia_7.h"
+#include "Rozdzial_7\Praca_domowa_4\Rodzial_7_Praca_domowa_4.h"
 
 
 int main()
 {
-
 	system("chcp 1250");
-	cwiczenia_7();
-
-
-
+	praca_domowa_R7_4();
 
 
 	/**
+	Rozdzia³ 7
+	//cwiczenia_7();
+
+
 	Rozdzia³ 6
 	//praca_domowa_R6_8();
 	//praca_domowa_R6_6();

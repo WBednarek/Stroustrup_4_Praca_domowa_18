@@ -1,8 +1,6 @@
 #include "stdafx.h"
 #include "cwiczenia_7.h"
 
-
-
 /*
 calculator08buggy.cpp
 
@@ -10,6 +8,10 @@ Helpful comments removed.
 
 We have inserted 3 bugs that the compiler will catch and 3 that it won't.
 */
+
+
+/*
+
 
 
 const char let = 'L';
@@ -346,3 +348,8 @@ int cwiczenia_7()
 	}
 }
 
+
+
+
+
+*/

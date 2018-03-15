@@ -2,6 +2,12 @@
 #include "../stdafx.h"
 #include "../std_lib_facilities_v2.h"
 
+
+/*
+
+
+
+
 struct Token {
 	char kind;
 	double value;
@@ -47,3 +53,4 @@ void define_name(string name, double value);
 
 double calculate_pow(double x, double i);
 
+*/
