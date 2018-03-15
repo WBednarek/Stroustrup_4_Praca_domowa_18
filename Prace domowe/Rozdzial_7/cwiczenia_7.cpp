@@ -79,7 +79,7 @@ Token Token_stream::get()
 			while (cin.get(ch) && (isalpha(ch) || isdigit(ch))) s += ch; // 2nd logical mistake, string should be made of chars, so s += ch;
 			cin.unget();
 			if (s == "#") return Token(let);
-			if (s == "quit") return Token(quit); // 1st logical mistake catched
+			if (s == "koniec") return Token(quit); // 1st logical mistake catched
 			if (s == "pow") return Token(pow_option);
 			if (s == "sqrt") return Token(sqrt_option);
 			return Token(name,s); // 1st compiling mistake catched
