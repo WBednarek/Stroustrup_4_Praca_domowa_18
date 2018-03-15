@@ -52,6 +52,7 @@ Token Token_stream::get()
 	case ';':
 	case '=':
 	case ',': // To use in pow(x, i) function
+	//case '#': // To use in value declaration
 		return Token(ch);
 	case '.':
 	case '0':
@@ -71,12 +72,13 @@ Token Token_stream::get()
 	}
 	 
 	default:
-		if (isalpha(ch)) {
+		if (isalpha(ch) || isprint(ch)) {
 			string s;
 			s += ch;
+			
 			while (cin.get(ch) && (isalpha(ch) || isdigit(ch))) s += ch; // 2nd logical mistake, string should be made of chars, so s += ch;
 			cin.unget();
-			if (s == "let") return Token(let);
+			if (s == "#") return Token(let);
 			if (s == "quit") return Token(quit); // 1st logical mistake catched
 			if (s == "pow") return Token(pow_option);
 			if (s == "sqrt") return Token(sqrt_option);
