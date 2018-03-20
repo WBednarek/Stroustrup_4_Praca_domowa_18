@@ -10,4 +10,7 @@
 
 void praca_domowa_R7_4();
 void calculation();
+double expression();
+double term();
 double statement();
+double primary();
