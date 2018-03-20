@@ -6,6 +6,8 @@ Token::Token()
 {
 }
 
+
+
 Token::Token(char kind) : kind(kind)
 {
 }

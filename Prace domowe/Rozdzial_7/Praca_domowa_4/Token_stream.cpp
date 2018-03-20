@@ -8,20 +8,25 @@ Token_stream::Token_stream() : is_buffer_full(false)
 
 void Token_stream::unget(Token t)
 {
+	if (is_buffer_full == true) error("Token_stream::unget(): Buffer is full"); // I made typical mistake xD, instead of == I putted single =
 	is_buffer_full = true;
 	buffer = t;
 }
 
 Token Token_stream::get()
 {
-	if (is_buffer_full == true) error("Token_stream: Buffer is full"); // I made typical mistake xD, instead of == I putted single =
+	if (is_buffer_full == true)
+	{
+		is_buffer_full = false;
+		return buffer;
+	}
 	char ch = ' ';
 	cin >> ch;
 	
 	switch (ch)
 	{
 	case '+': case '-': case '*': case '/': case '%':
-	case ',': case '(': case ')':
+	case ',': case '(': case ')': 
 	{
 		return Token(ch);
 	}
@@ -53,6 +58,7 @@ Token Token_stream::get()
 			while (cin.get(ch) && (isalpha(ch) || isalnum(ch))) s += ch;
 			if (s == "let") return Token(declaration);
 			if (s == "koniec") return Token(quit);
+			if (s == "sqrt") return Token(sqrt_sign);
 		}
 		error("Bad token");	
 	}
