@@ -170,6 +170,7 @@
     <ClInclude Include="Rozdzial_7\Praca_domowa_4\Token_stream.h" />
     <ClInclude Include="Rozdzial_7\Praca_domowa_4\Variable.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Rozdzial_7\Praca_domowa_4\Symbol_table.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Tools.h" />
     <ClInclude Include="Rozdzial_5\Wypróbuj_Rozdział_5.h" />
@@ -201,6 +202,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Rozdzial_7\Praca_domowa_4\Symbol_table.cpp" />
+    <ClCompile Include="SYMBOL_TABLE.CPP" />
     <ClCompile Include="Tools.cpp" />
     <ClCompile Include="Rozdzial_5\Wypróbuj_Rozdział_5.cpp" />
   </ItemGroup>

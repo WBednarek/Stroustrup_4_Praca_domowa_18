@@ -10,6 +10,7 @@ Napisaæ kalkulator od nowa
 
 Token_stream ts;
 
+
 void praca_domowa_R7_4()
 {
 	try
@@ -57,27 +58,26 @@ void calculation()
 
 void clean_up_mess()
 {
-	ignore_signs(print);
+	ts.ignore_signs(print);
 }
 
-
-
-
-
-void ignore_signs(char sign_to_find)
-{
-	char current_sign = ' ';
-	while (cin >> current_sign)
-	{
-		if (current_sign == sign_to_find) return;
-	}
-
-}
 
 
 double statement()
 {
-	double result = expression();
+	Token t = ts.get();
+	double result = 0.0;
+	switch (t.kind)
+	{
+	case declaration:
+		break;
+	default:
+		ts.unget(t);
+		double result = expression();
+		break;
+	}
+
+	
 	
 
 	return result;
@@ -220,6 +220,16 @@ bool is_integer(double to_check)
 	return true;
 }
 
+void declare_variable()
+{
+	string var_name = " ";
+	cin >> var_name;
+	if (isdigit(var_name[0]))
+		error("Name of variable cannot have a number in the beginning");
+	//TODO 
+	//concatenate chars instead of reading whole string. We need to check if char is valid ie. is not '='; '['; '>' etc. Only numebrs (apart from the first one) and signs
+}
+
 
 
 
@@ -227,7 +237,7 @@ double my::pow(double x, double i)
 {
 
 
-	if (i == 0) // Change the previous program!
+	if (i == 0) 
 	{
 		return 1.0;
 	}

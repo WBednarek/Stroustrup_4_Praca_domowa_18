@@ -7,6 +7,22 @@ Token_stream::Token_stream() : is_buffer_full(false)
 {
 }
 
+void Token_stream::ignore_signs(char sign_to_find)
+{
+	char current_sign = ' ';
+	if (is_buffer_full)
+	{
+		if (buffer.kind == sign_to_find) return;
+		
+	}
+	
+	while (cin >> current_sign)
+	{
+		if (current_sign == sign_to_find) return;
+	}
+
+}
+
 void Token_stream::unget(Token t)
 {
 	if (is_buffer_full == true) error("Token_stream::unget(): Buffer is full"); // I made typical mistake xD, instead of == I putted single =

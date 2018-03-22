@@ -13,6 +13,7 @@ public:
 	void unget(Token t);
 	Token get();
 	Token_stream();
+	void ignore_signs(char sign_to_find);
 
 };
 

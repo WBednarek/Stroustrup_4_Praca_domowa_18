@@ -4,10 +4,11 @@
 
 class Variable
 {
-private:
+
+	
+public:
 	string name;
 	double value;
-public:
 	Variable(string name, double value);
 	Variable(string name);
 };
