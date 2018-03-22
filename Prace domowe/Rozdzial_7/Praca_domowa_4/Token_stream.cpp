@@ -59,6 +59,7 @@ Token Token_stream::get()
 			if (s == "let") return Token(declaration);
 			if (s == "koniec") return Token(quit);
 			if (s == "sqrt") return Token(sqrt_sign);
+			if (s == "pow") return Token(pow_sign);
 		}
 		error("Bad token");	
 	}

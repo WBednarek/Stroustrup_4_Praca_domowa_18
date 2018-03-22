@@ -25,8 +25,8 @@ Term:
 	
 Primary:
 	"(" Expression ")"
-	"-" Primary
-	"+" Primary
+	"-" Expression
+	"+" Expression
 	Number
 	Name
 	"sqrt" "(" Expression ")"
