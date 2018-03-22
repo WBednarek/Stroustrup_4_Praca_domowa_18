@@ -12,6 +12,8 @@ We have inserted 3 bugs that the compiler will catch and 3 that it won't.
 
 
 
+/*
+
 
 
 const char let = 'L';
@@ -389,3 +391,9 @@ int cwiczenia_7()
 	}
 }
 
+
+
+
+
+
+*/

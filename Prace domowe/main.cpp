@@ -27,8 +27,8 @@
 int main()
 {
 	system("chcp 1250");
-	//praca_domowa_R7_4();
-	cwiczenia_7();
+	praca_domowa_R7_4();
+	
 
 	/**
 	Rozdzia³ 7

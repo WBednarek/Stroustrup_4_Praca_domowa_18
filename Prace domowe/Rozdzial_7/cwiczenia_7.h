@@ -2,6 +2,7 @@
 #include "../stdafx.h"
 #include "../std_lib_facilities_v2.h"
 
+/*
 
 
 
@@ -56,3 +57,6 @@ namespace my {
 	double pow_negative_exponent(double x, double i);
 }
 
+
+
+*/
