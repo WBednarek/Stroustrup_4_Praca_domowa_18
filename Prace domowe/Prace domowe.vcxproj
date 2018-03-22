@@ -144,13 +144,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
-    <Text Include="Rozdzial_7\Grammar_exercises.txt" />
-    <Text Include="Rozdzial_7\Test_input_cwiczenie_7.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Rozdzial_7\Praca_domowa_4\Database.h" />
-    <ClInclude Include="Rozdzial_7\Praca_domowa_4\Rodzial_7_Praca_domowa_4.h" />
-    <ClInclude Include="Rozdzial_7\cwiczenia_7.h" />
     <ClInclude Include="Rozdzial_6\Praca_domowa_R6_10_v2.h" />
     <ClInclude Include="Rozdzial_6\Praca_domowa_R6_10.h" />
     <ClInclude Include="Rozdzial_6\Praca_domowa_R6_8.h" />
@@ -164,18 +159,19 @@
     <ClInclude Include="Praca_domowa_5.h" />
     <ClInclude Include="Rozdzial_6\cwiczenia_6.h" />
     <ClInclude Include="Rozdzial_6\Wyprobuj_6_9.h" />
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="targetver.h" />
+    <ClInclude Include="Rozdzial_7\cwiczenia_7.h" />
+    <ClInclude Include="Rozdzial_7\Praca_domowa_4\Database.h" />
+    <ClInclude Include="Rozdzial_7\Praca_domowa_4\Rodzial_7_Praca_domowa_4.h" />
     <ClInclude Include="Rozdzial_7\Praca_domowa_4\Token.h" />
     <ClInclude Include="Rozdzial_7\Praca_domowa_4\Token_stream.h" />
+    <ClInclude Include="Rozdzial_7\Praca_domowa_4\Variable.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
     <ClInclude Include="Tools.h" />
     <ClInclude Include="Rozdzial_5\Wypróbuj_Rozdział_5.h" />
     <ClInclude Include="Rozdzial_6\Wypróbuj_6_6_original.h" />
-    <ClInclude Include="Rozdzial_7\Praca_domowa_4\Variable.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Rozdzial_7\Praca_domowa_4\Rodzial_7_Praca_domowa_4.cpp" />
-    <ClCompile Include="Rozdzial_7\cwiczenia_7.cpp" />
     <ClCompile Include="Rozdzial_6\Praca_domowa_R6_10_v2.cpp" />
     <ClCompile Include="Rozdzial_6\Praca_domowa_R6_10.cpp" />
     <ClCompile Include="Rozdzial_6\Praca_domowa_R6_8.cpp" />
@@ -190,17 +186,19 @@
     <ClCompile Include="Praca_domowa_5.cpp" />
     <ClCompile Include="Rozdzial_6\cwiczenia_6.cpp" />
     <ClCompile Include="Rozdzial_6\Wyprobuj_6_9.cpp" />
+    <ClCompile Include="Rozdzial_7\cwiczenia_7.cpp" />
+    <ClCompile Include="Rozdzial_7\Praca_domowa_4\Rodzial_7_Praca_domowa_4.cpp" />
+    <ClCompile Include="Rozdzial_7\Praca_domowa_4\Token.cpp" />
+    <ClCompile Include="Rozdzial_7\Praca_domowa_4\Token_stream.cpp" />
+    <ClCompile Include="Rozdzial_7\Praca_domowa_4\Variable.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Rozdzial_7\Praca_domowa_4\Token.cpp" />
-    <ClCompile Include="Rozdzial_7\Praca_domowa_4\Token_stream.cpp" />
     <ClCompile Include="Tools.cpp" />
     <ClCompile Include="Rozdzial_5\Wypróbuj_Rozdział_5.cpp" />
-    <ClCompile Include="Rozdzial_7\Praca_domowa_4\Variable.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -3,9 +3,6 @@
 #include "../std_lib_facilities_v2.h"
 
 
-/*
-
-
 
 
 struct Token {
@@ -51,6 +48,11 @@ int cwiczenia_7();
 
 void define_name(string name, double value);
 
-double calculate_pow(double x, double i);
+bool is_integer(double to_check);
 
-*/
+namespace my {
+	double pow(double x, double i); // Power of function pow(x,i) where, x - base; i - exponent
+	double pow_int(double x, double i); // Power of function pow(x, i) for integers only
+	double pow_negative_exponent(double x, double i);
+}
+

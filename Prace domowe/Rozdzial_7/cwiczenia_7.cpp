@@ -10,7 +10,7 @@ We have inserted 3 bugs that the compiler will catch and 3 that it won't.
 */
 
 
-/*
+
 
 
 
@@ -176,7 +176,7 @@ double primary()
 			double i = expression();
 			t = ts.get();
 			if (t.kind != ')') error("No closing bracket ')' in pow(x, i) function");
-			return calculate_pow(x, i);
+			return my::pow(x, i);
 		}
 	}	
 	case sqrt_option:
@@ -298,34 +298,75 @@ void define_name(string name, double value)
 	names.push_back(Variable(name, value));
 }
 
-double calculate_pow(double x, double i)
+
+bool is_integer(double to_check)
 {
-	int ii = int(i);
-	if (abs(ii - i) != 0) error("In pow(x, i) function \"i\" is not an integer");
-	if (i == 0) return x;
-	//if (i < 0) error("In pow(x, i) function \"i\" cannot be less than 0");
-	double pow_result = 0.0;
-	if (i < 0)
+	if (to_check - int(to_check) != 0)
 	{
-		pow_result = (1.0 / x); // Remember about having at least one dot in some of numbers in double value e.g. 2.0 instead of 2
-		int k = abs(i);
-		for (int j = 1; j < k; ++j) // Loop starts from one since pow_result is like powered to minus one, since the begining
-		{
-			pow_result *= (1.0 / x); 
-		}
+		return false;
 	}
-	else
-	{
-		pow_result = x;
-		for (int j = 1; j < i; ++j) // Loop starts from one since pow_result is like powered to one, since the begining
-		{
-			pow_result *= x;
-		}
-	}
-	
-	return pow_result;
+	return true;
 }
 
+
+double my::pow(double x, double i)
+{
+
+
+	if (i == 0) // Change the previous program!
+	{
+		return 1.0;
+	}
+	if (x == 0) 
+	{
+		return 0.0;
+	}
+	
+	double result = 0;
+	if (is_integer(i) && i > 0)
+	{
+		result = my::pow_int(x, i);
+	}
+
+	if (is_integer(i) && i < 0)
+	{
+		result = my::pow_negative_exponent(x, i);
+	}
+
+	return result;
+
+}
+
+double my::pow_int(double x, double i)
+{
+	double result = 0;
+	if (is_integer(i) && i > 0)
+	{
+		result = x;
+		for (int j = 1; j < i; ++j)
+		{
+			result *= x;
+		}
+	}
+
+	return result;
+}
+
+double my::pow_negative_exponent(double x, double i)
+{
+	double result = 0;
+	if (is_integer(i) && i < 0)
+	{
+		result = 1/x;
+		i = abs(i);
+		for (int j = 1; j < i; ++j)
+		{
+			result *= 1/x;
+		}
+	}
+
+	return result;
+}
 
 int cwiczenia_7()
 {
@@ -348,8 +389,3 @@ int cwiczenia_7()
 	}
 }
 
-
-
-
-
-*/
