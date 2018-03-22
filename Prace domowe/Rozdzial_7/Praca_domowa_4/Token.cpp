@@ -8,7 +8,7 @@ Token::Token()
 
 
 
-Token::Token(char kind) : kind(kind)
+Token::Token(char kind) : kind(kind), value(0.0)
 {
 }
 

@@ -102,6 +102,7 @@ double expression()
 			//t = ts.get();
 			left -= term();
 			break;
+		
 		default:
 			ts.unget(t);
 			return left;
@@ -125,8 +126,27 @@ double term()
 			left *= primary();
 			break;
 		case '/':
-			left /= primary();
+		{
+			double divisior = primary();
+			if (divisior == 0)
+				error("Division operation: dividing by zero");
+			left /= divisior;
 			break;
+		}		
+		case '%':
+		{
+			double right = primary();
+			int int_left = int(left);
+			if ((left - int_left) != 0)
+				error("Modulo operation: The first (left) modulo operation argument is non-integer");
+			int int_right = int(right);
+			if ((right - int_right) != 0)
+				error("Modulo operation: The second (right) modulo operation argument is non-integer");
+			if (int_right == 0)
+				error("Modulo operation: Dividing by zero");
+			left = int_left % int_right;
+			break;
+		}
 		default:
 			ts.unget(t);
 			//error("Multiplication or division operation expected");
@@ -156,11 +176,13 @@ double primary()
 		return -expression();
 	case plus_sign:
 		return +expression();
+	
 	case sqrt_sign:
 		t = ts.get();
 		if (t.kind != '(')
 			error("No opening bracket '(' in sqrt operation");
 		left = expression();
+		
 		t = ts.get();
 		if (t.kind != ')')
 			error("No closing bracket ')' in sqrt operation");

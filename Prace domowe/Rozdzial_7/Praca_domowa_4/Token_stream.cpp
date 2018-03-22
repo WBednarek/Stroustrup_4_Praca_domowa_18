@@ -56,10 +56,11 @@ Token Token_stream::get()
 			string s = "";
 			s += ch;
 			while (cin.get(ch) && (isalpha(ch) || isalnum(ch))) s += ch;
-			if (s == "let") return Token(declaration);
-			if (s == "koniec") return Token(quit);
-			if (s == "sqrt") return Token(sqrt_sign);
-			if (s == "pow") return Token(pow_sign);
+				if (s == "let") return Token(declaration);
+				if (s == "koniec") return Token(quit);
+				if (s == "sqrt") return Token(sqrt_sign);
+				if (s == "pow") return Token(pow_sign);
+			
 		}
 		error("Bad token");	
 	}
