@@ -37,7 +37,7 @@ double Symbol_table::get(string name)
 		error("Symbol_table: No such element in variable_table vector");
 	}
 
-	return -1;
+	return -1.0;
 }
 
 void Symbol_table::set(Variable elem)

@@ -69,7 +69,7 @@ Token Token_stream::get()
 	case '7':
 	case '8':
 	case '9':
-	{	cin.unget(); // this function used to be named putback()
+	{	cin.unget(); // What is difference between cin.putback(ch) and cin.unget()?
 	double val;
 	cin >> val;
 	return Token(number, val);
@@ -215,7 +215,7 @@ double term()
 		break;
 		}		
 		default:
-			ts.unget(t); 
+			ts.unget(t); // this function used to be named putback()
 			return left;
 		}
 	}

@@ -73,7 +73,9 @@ Token Token_stream::get()
 		{
 			string s = "";
 			s += ch;
-			while (cin.get(ch) && (isalpha(ch) || isalnum(ch))) s += ch;
+			while (cin.get(ch) && (isalpha(ch) || isdigit(ch))) s += ch;
+			cin.unget(); // THAT LINE FIXED MY PROBLEM, because in the last loop iteration it gets the next symbol after searched word; 
+			//cin.get(ch) does that in while loop eg. in sqrt(2) in the last loop iteration it eats '(' as well
 				if (s == "let") return Token(declaration);
 				if (s == "koniec") return Token(quit);
 				if (s == "sqrt") return Token(sqrt_sign);
