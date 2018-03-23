@@ -17,7 +17,7 @@ double statement();
 double primary();
 void clean_up_mess();
 bool is_integer(double to_check);
-void declare_variable();
+double declare_variable();
 
 namespace my {
 	double pow(double x, double i); // Power of function pow(x,i) where, x - base; i - exponent

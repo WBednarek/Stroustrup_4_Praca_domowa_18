@@ -25,7 +25,7 @@ public:
 	void ignore(char);
 };
 
-double get_value(string s);
+double get(string s);
 
 void set_value(string s, double d);
 

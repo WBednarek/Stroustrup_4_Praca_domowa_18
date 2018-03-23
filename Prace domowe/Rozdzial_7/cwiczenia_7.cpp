@@ -121,7 +121,7 @@ struct Variable {
 
 vector<Variable> names; // Stores names of declated variables in calculator
 
-double get_value(string s)
+double get(string s)
 {
 	for (int i = 0; i<names.size(); ++i)
 		if (names[i].name == s) return names[i].value;
@@ -166,7 +166,7 @@ double primary()
 	case number:
 		return t.value; //returns single inputted number to be displayed
 	case name:
-		return get_value(t.name); // returns value of defined variable stored in names vector
+		return get(t.name); // returns value of defined variable stored in names vector
 	case pow_option:
 	{
 		t = ts.get();

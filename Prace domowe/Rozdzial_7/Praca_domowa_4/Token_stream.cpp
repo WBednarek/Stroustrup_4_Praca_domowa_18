@@ -7,6 +7,7 @@ Token_stream::Token_stream() : is_buffer_full(false)
 {
 }
 
+
 void Token_stream::ignore_signs(char sign_to_find)
 {
 	char current_sign = ' ';
@@ -43,7 +44,7 @@ Token Token_stream::get()
 	switch (ch)
 	{
 	case '+': case '-': case '*': case '/': case '%':
-	case ',': case '(': case ')': 
+	case ',': case '(': case ')': case '=':
 	{
 		return Token(ch);
 	}
@@ -77,6 +78,8 @@ Token Token_stream::get()
 				if (s == "koniec") return Token(quit);
 				if (s == "sqrt") return Token(sqrt_sign);
 				if (s == "pow") return Token(pow_sign);
+				return Token(variable, s);
+				
 			
 		}
 		error("Bad token");	

@@ -13,8 +13,10 @@ class Symbol_table
 public:
 	Symbol_table();
 	~Symbol_table();
-	bool is_defined(string name);
-	Variable get_element(string name);
-	void set_element(Variable elem);
+	bool is_declared(string name);
+	double get(string name);
+	void set(Variable elem);
+	vector<Variable> get_var_table();
+	void define(string name, double value);
 };
 

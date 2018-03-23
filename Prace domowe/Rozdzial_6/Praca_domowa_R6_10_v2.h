@@ -40,7 +40,7 @@ public:
 	Token(int value);
 	Token();
 	char get_type();
-	int get_value();
+	int get();
 };
 
 
@@ -110,7 +110,7 @@ public:
 Token(type, value) : type(type), value(value)
 Token(value) : value(value)
 get_type();
-get_value();
+get();
 };
 
 char Token::get_type()
@@ -118,7 +118,7 @@ char Token::get_type()
 return type;
 }
 
-char Token::get_value()
+char Token::get()
 {
 return value;
 }
@@ -181,8 +181,8 @@ cout << "Input two numbers with spaces, type "end" to finish program" << endl;
 Token t = ts.get();
 if(t.get_type() == end) exit_program;
 ts.putback(t);
-int a = ts.get_value();
-int b = ts.get_value();
+int a = ts.get();
+int b = ts.get();
 if(a < 0 || b < 0) error("Inputted by user numbers for permuation/combination are less than 0");
 select_operation(a, b);
 }

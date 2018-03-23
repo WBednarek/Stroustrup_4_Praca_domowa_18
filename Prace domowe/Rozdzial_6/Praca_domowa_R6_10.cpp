@@ -85,7 +85,7 @@ char Token::get_type()
 	return type;
 }
 
-int Token::get_value()
+int Token::get()
 {
 	return value;
 }
@@ -205,9 +205,9 @@ bool handle_input(char print, char exit)
 		cout << "exiting program" << endl;
 		return false;
 	}
-	int a = t.get_value();
+	int a = t.get();
 	t = ts.get();
-	int b = t.get_value();
+	int b = t.get();
 	t = ts.get();
 	char c = t.get_type();
 	if (a < b) error("a has to be bigger than b");

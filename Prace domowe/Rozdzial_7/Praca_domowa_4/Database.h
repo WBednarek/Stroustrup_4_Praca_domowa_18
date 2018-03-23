@@ -12,5 +12,6 @@ const char sqrt_sign = 'S';
 const char pow_sign = 'P';
 const char minus_sign = '-';
 const char plus_sign = '+';
+const char variable = 'v';
 
 

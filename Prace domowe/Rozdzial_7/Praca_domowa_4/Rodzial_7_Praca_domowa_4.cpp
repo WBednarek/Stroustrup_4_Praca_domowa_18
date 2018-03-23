@@ -8,8 +8,9 @@ Napisaæ kalkulator od nowa
 */
 
 
-Token_stream ts;
 
+Symbol_table st;
+Token_stream ts;
 
 void praca_domowa_R7_4()
 {
@@ -29,6 +30,7 @@ void praca_domowa_R7_4()
 
 void calculation()
 {
+	st.define("PI", 3.14);
 	while (true)
 	{
 		try 
@@ -70,15 +72,13 @@ double statement()
 	switch (t.kind)
 	{
 	case declaration:
+		result = declare_variable();
 		break;
 	default:
 		ts.unget(t);
-		double result = expression();
+		result = expression();
 		break;
 	}
-
-	
-	
 
 	return result;
 }
@@ -176,17 +176,19 @@ double primary()
 		return -expression();
 	case plus_sign:
 		return +expression();
-	
+	case variable:
+		return st.get(t.name); // returning value from variable table
 	case sqrt_sign:
+	{
 		t = ts.get();
 		if (t.kind != '(')
 			error("No opening bracket '(' in sqrt operation");
 		left = expression();
-		
 		t = ts.get();
 		if (t.kind != ')')
 			error("No closing bracket ')' in sqrt operation");
 		return sqrt(left);
+	}
 	case pow_sign:
 	{
 		t = ts.get();
@@ -213,19 +215,49 @@ double primary()
 
 bool is_integer(double to_check)
 {
-	if (to_check - int(to_check) != 0)
+	if (to_check - int(to_check) != 0.0)
 	{
 		return false;
 	}
 	return true;
 }
 
-void declare_variable()
+
+double declare_variable()
 {
-	string var_name = " ";
-	cin >> var_name;
-	if (isdigit(var_name[0]))
-		error("Name of variable cannot have a number in the beginning");
+	string var_name = ""; //Try to define when it is acceptable empty string, later it may (it rather will) cause the errors
+	char ch = ' ';
+	cin >> ch;
+	if (!isdigit(ch) || !isalpha(ch))
+	{
+		cin.putback(ch);
+		while (cin >> ch && ch != '=')
+		{
+			if (isalpha(ch))
+			{
+				var_name += ch;
+			}
+			else
+			{
+				error("Variable name has to contain only letters and digits (also digit cannot be on the first position)");
+			}
+		}
+		cin.putback(ch);
+	}
+	else
+	{
+		error("Variable name has to have a letter at the first position");
+	}
+	Token t;
+	t = ts.get();
+	if (t.kind != '=')
+	{
+		error("No '=' sign found after variable name");
+	}
+	double declared_variable = expression();
+	st.set(Variable(var_name, declared_variable)); // Adding variable to Symbol_table st object
+	
+	return declared_variable;
 	//TODO 
 	//concatenate chars instead of reading whole string. We need to check if char is valid ie. is not '='; '['; '>' etc. Only numebrs (apart from the first one) and signs
 }
