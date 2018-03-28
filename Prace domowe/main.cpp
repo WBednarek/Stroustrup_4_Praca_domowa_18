@@ -15,23 +15,24 @@
 #include "Rozdzial_6\Praca_domowa_R6_8.h"
 #include "Rozdzial_6\Praca_domowa_R6_10.h"
 #include "Rozdzial_6\Praca_domowa_R6_10_v2.h"
+#include "Rozdzial_7\cwiczenia_7.h"
+#include "Rozdzial_7\Praca_domowa_4\Rodzial_7_Praca_domowa_4.h"
 */
 
 #include "stdafx.h"
 #include "../../../../std_lib_facilities_v2.h"
-
-#include "Rozdzial_7\cwiczenia_7.h"
-#include "Rozdzial_7\Praca_domowa_4\Rodzial_7_Praca_domowa_4.h"
+#include "Rozdzial_8\use.h"
 
 
 int main()
 {
 	system("chcp 1250");
-	praca_domowa_R7_4();
+	cwiczenia_8();
 	
 
 	/**
 	Rozdzia³ 7
+	praca_domowa_R7_4();
 	//cwiczenia_7();
 
 
