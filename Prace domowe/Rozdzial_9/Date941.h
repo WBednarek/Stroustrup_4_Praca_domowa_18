@@ -20,7 +20,7 @@ namespace Date941
 
 	void init_day(Date& dd, int y, int m, int d);
 	void add_day(Date& dd);
-	bool lapyear(int year);
+	bool leapyear(int year);
 	const int& lapyear_february_days();
 	const int& february_days();
 }

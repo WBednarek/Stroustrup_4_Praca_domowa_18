@@ -19,7 +19,7 @@ namespace Date942
 
 	};
 
-	bool lapyear(int year);
+	bool leapyear(int year);
 	const int& lapyear_february_days();
 	const int& february_days();
 }

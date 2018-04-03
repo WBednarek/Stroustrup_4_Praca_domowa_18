@@ -21,8 +21,8 @@ namespace Date942
 		}
 		case 2:
 		{
-			if (lapyear(year) && day > lapyear_february_days()) error("error: to much days for month: February in lap year (maximimun 29)");
-			if (!lapyear(year) && day > february_days()) error("error: to much days for month: February");
+			if (leapyear(year) && day > lapyear_february_days()) error("error: to much days for month: February in lap year (maximimun 29)");
+			if (!leapyear(year) && day > february_days()) error("error: to much days for month: February");
 			break;
 		}
 		default:
@@ -43,13 +43,13 @@ namespace Date942
 	void Date::add_day(int n)
 	{
 		if (n < 1) error("error: add positive mumber of day (more than 0)");
-		if (lapyear(y) && m == 2 && d == lapyear_february_days())
+		if (leapyear(y) && m == 2 && d == lapyear_february_days())
 		{
 			m = 3;
 			d = n;
 			return;
 		}
-		if (d == february_days() || d == 30 || d == 31)
+		if (!leapyear(y) && (d == february_days() || d == 30 || d == 31))
 		{
 			if (m != 12)
 			{
@@ -72,7 +72,7 @@ namespace Date942
 	}
 
 
-	bool lapyear(int year)
+	bool leapyear(int year)
 	{
 		if (year % 4 == 0) return true;
 		return false;

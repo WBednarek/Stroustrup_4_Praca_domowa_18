@@ -21,8 +21,8 @@ namespace Date941
 		}
 		case 2:
 		{
-			if (lapyear(y) && d > lapyear_february_days()) error("error: to much days for month: February in lap year (maximimun 29)");
-			if (!lapyear(y) && d > february_days()) error("error: to much days for month: February");
+			if (leapyear(y) && d > lapyear_february_days()) error("error: to much days for month: February in lap year (maximimun 29)");
+			if (!leapyear(y) && d > february_days()) error("error: to much days for month: February");
 			break;
 		}
 		default:
@@ -42,13 +42,13 @@ namespace Date941
 
 	void add_day(Date& dd)
 	{
-		if (lapyear(dd.y) && dd.m == 2 && dd.d == lapyear_february_days())
+		if (leapyear(dd.y) && dd.m == 2 && dd.d == lapyear_february_days())
 		{
 			dd.m = 3;
 			dd.d = 1;
 			return;
 		}
-		if (dd.d == february_days() || dd.d == 30 || dd.d == 31)
+		if (!leapyear(dd.y) && (dd.d == february_days() || dd.d == 30 || dd.d == 31))
 		{
 			if (dd.m != 12)
 			{
@@ -71,7 +71,7 @@ namespace Date941
 	}
 
 
-	bool lapyear(int year)
+	bool leapyear(int year)
 	{
 		if (year % 4 == 0) return true;
 		return false;
