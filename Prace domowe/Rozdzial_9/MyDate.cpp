@@ -2,7 +2,7 @@
 #include "MyDate.h"
 
 //For Date struct form chapter 9.4.3 and 9.7.1
-ostream& operator<<(ostream& os, Date971::Date& d)
+ostream& operator<<(ostream& os, Date974::Date& d)
 {
 	return os << "(" << d.year() 
 		<< ", " << d.month() << ", " 
@@ -22,9 +22,28 @@ ostream& operator<<(ostream& os, Date971::Date& d)
 
 void cwiczenia_9()
 {
-	////Date form chapter 9.7.1
+
+	////Date form chapter 9.7.4
 	try {
-		Date971::Date today(Date971::Year(2016), Date971::Date::Month(-2), 20);
+		Date974::Date today(Date974::Year(2181), Date974::Date::Month(2), 28);
+		Date974::Date tomorrow = today;
+		tomorrow.add_day(1);
+		tomorrow.add_month(5);
+		tomorrow.add_year(16);
+
+
+		cout << "Today is: " << today << endl;
+		cout << "Tomorrow is: " << tomorrow << endl;
+	}
+	catch (exception& e)
+	{
+		cerr << e.what() << endl;
+	}
+
+
+	////Date form chapter 9.7.1
+	/*try {
+		Date971::Date today(Date971::Year(2016), Date971::Date::Month(2), 28);
 		Date971::Date tomorrow = today;
 		tomorrow.add_day(1);
 
@@ -35,7 +54,7 @@ void cwiczenia_9()
 	catch (exception& e)
 	{
 		cerr << e.what() << endl;
-	}
+	}*/
 
 
 

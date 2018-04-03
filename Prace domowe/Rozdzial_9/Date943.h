@@ -4,7 +4,7 @@
 
 /*
 Stroustrup PPP Chapter 9
-Exercise 1 for Date struct form chapter 9.4.3
+Exercise 1 for Date class form chapter 9.4.3
 
 */
 

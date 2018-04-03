@@ -1,14 +1,14 @@
 #include "stdafx.h"
-#include "Date971.h"
+#include "Date974.h"
 
 
-namespace Date971
+namespace Date974
 {
 
 	Date::Month operator+(Date::Month& m, Date::Month& m1)// eg. feb + feb
 	{
 		Date::Month result;
-		result = Date::Month((m + m1) % 13);
+		result = Date::Month(((m + m1) % 13) );
 		return result;
 	}
 
@@ -21,7 +21,7 @@ namespace Date971
 
 	Date::Month operator+=(Date::Month& m, int m1)
 	{
-		m = Date::Month((m + m1) % 13);
+		m = Date::Month(((m + m1) % 13) );
 		return m;
 	}
 
@@ -37,6 +37,21 @@ namespace Date971
 	}
 
 
+	int Date::year() const
+	{
+		return y.year();
+	}
+
+	int Date::month() const
+	{
+		return m;
+	}
+
+	int Date::day() const
+	{
+		return d;
+	}
+
 	Date::Date(Year year, Month month, int day)
 	{
 		const int max_days_num = 31;
@@ -46,7 +61,7 @@ namespace Date971
 
 		switch (month)
 		{
-		case apr: case jun: case sep: case nov: 
+		case apr: case jun: case sep: case nov:
 		{
 			if (day > 30) error("error: to much days for months: April, June, September, November");
 			break;
@@ -74,7 +89,7 @@ namespace Date971
 
 	void Date::add_day(int n)
 	{
-		if (n < 1) error("error: add positive mumber of day (more than 0)");
+		if (n < 1) error("error: add positive mumber of days (more than 0)");
 		if (leapyear(y.year()) && m == feb && d == lapyear_february_days())
 		{
 			m = mar;
@@ -101,6 +116,19 @@ namespace Date971
 
 		d += n;
 
+	}
+
+	void Date::add_month(int n)
+	{
+		if (n < 0) error("error: add positive mumber of months (more than 0)");
+		m = Month(((m + n) % 13) );
+
+	}
+
+	void Date::add_year(int n)
+	{
+		if (n < 0) error("error: add positive mumber of years (more than 0)");
+		y = Year(y.year() + n);
 	}
 
 
