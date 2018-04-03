@@ -150,6 +150,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Rozdzial_9\Date971.h" />
     <ClInclude Include="Rozdzial_9\Date943.h" />
     <ClInclude Include="Rozdzial_9\Date942.h" />
     <ClInclude Include="Rozdzial_9\Date941.h" />
@@ -183,6 +184,7 @@
     <ClInclude Include="Rozdzial_6\Wypróbuj_6_6_original.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Rozdzial_9\Date971.cpp" />
     <ClCompile Include="Rozdzial_9\Date943.cpp" />
     <ClCompile Include="Rozdzial_9\Date942.cpp" />
     <ClCompile Include="Rozdzial_9\Date941.cpp" />

@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #include "MyDate.h"
 
-//For Date struct form chapter 9.4.3
-ostream& operator<<(ostream& os, Date943::Date& d)
+//For Date struct form chapter 9.4.3 and 9.7.1
+ostream& operator<<(ostream& os, Date971::Date& d)
 {
 	return os << "(" << d.year() 
 		<< ", " << d.month() << ", " 
@@ -22,9 +22,25 @@ ostream& operator<<(ostream& os, Date943::Date& d)
 
 void cwiczenia_9()
 {
+	////Date form chapter 9.7.1
+	try {
+		Date971::Date today(Date971::Year(2016), Date971::Date::Month(-2), 20);
+		Date971::Date tomorrow = today;
+		tomorrow.add_day(1);
+
+
+		cout << "Today is: " << today << endl;
+		cout << "Tomorrow is: " << tomorrow << endl;
+	}
+	catch (exception& e)
+	{
+		cerr << e.what() << endl;
+	}
+
+
 
 	////Date form chapter 9.4.3
-	try {
+	/*try {
 		Date943::Date today(2012, 13, 3);
 		Date943::Date tomorrow = today;
 		tomorrow.add_day(1);
@@ -36,7 +52,7 @@ void cwiczenia_9()
 	catch (exception& e)
 	{
 		cerr << e.what() << endl;
-	}
+	}*/
 
 
 	////Date form chapter 9.4.2
