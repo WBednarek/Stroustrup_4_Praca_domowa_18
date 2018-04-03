@@ -4,18 +4,22 @@
 
 /*
 Stroustrup PPP Chapter 9
-Exercise 1 for Date struct form chapter 9.4.2
+Exercise 1 for Date struct form chapter 9.4.3
 
 */
 
 
-namespace Date942
+namespace Date943
 {
-	struct Date
+	class Date
 	{
 		int y, m, d;
+	public:
 		Date(int y, int m, int d);
 		void add_day(int n);
+		int month() { return m; }
+		int day() { return d; }
+		int year() { return y; }
 
 	};
 
