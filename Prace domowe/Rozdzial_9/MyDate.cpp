@@ -12,7 +12,8 @@
 //}
 //
 
-ostream& operator<<(ostream& os, Date941& d)
+//For Date struct form chapter 9.4.1 and 9.4.2
+ostream& operator<<(ostream& os, Date941::Date& d)// Date941& d for Date941 sstruct
 {
 	return os << "(" << d.y
 		<< ", " << d.m << ", "
@@ -22,11 +23,33 @@ ostream& operator<<(ostream& os, Date941& d)
 
 void cwiczenia_9()
 {
+	////Date form chapter 9.4.2
+
+	//try {
+
+	//	Date942::Date today(2015, 2, 28);
+	//	Date942::Date tomorrow = today;
+	//	tomorrow.add_day(1);
+
+
+	//	cout << "Today is: " << today << endl;
+	//	cout << "Tomorrow is: " << tomorrow << endl;
+	//}
+	//catch (exception& e)
+	//{
+	//	cerr << e.what() << endl;
+	//}
+
+
+
+
+	//Date form chapter 9.4.1
+	
 	try {
-		//Date form chapter 9.4.1
-		Date941 today;
-		init_day(today, 2016, 13, -5);
-		Date941 tomorrow = today;
+		
+		Date941::Date today;
+		init_day(today, 2016, 2, 30);
+		Date941::Date tomorrow = today;
 		add_day(tomorrow);
 
 		cout << "Today is: " << today << endl;
@@ -36,7 +59,7 @@ void cwiczenia_9()
 	{
 		cerr << e.what() << endl;
 	}
-
+	
 	
 
 }
