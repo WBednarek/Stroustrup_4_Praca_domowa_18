@@ -18,11 +18,14 @@
 #include "Rozdzial_7\cwiczenia_7.h"
 #include "Rozdzial_7\Praca_domowa_4\Rodzial_7_Praca_domowa_4.h"
 #include "Rozdzial_8\use.h"
+
 */
 
 #include "stdafx.h"
 #include "../../../../std_lib_facilities_v2.h"
 #include "Rozdzial_9\MyDate.h"
+#include "Rozdzial_10\Exercises_10.h"
+
 
 
 int main()

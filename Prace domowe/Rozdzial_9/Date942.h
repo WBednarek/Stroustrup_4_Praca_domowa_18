@@ -20,8 +20,8 @@ namespace Date942
 	};
 
 	bool leapyear(int year);
-	const int& lapyear_february_days();
-	const int& february_days();
+	const int& num_of_february_days_lapyear();
+	const int& num_of_february_days();
 }
 
 

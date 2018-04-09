@@ -28,8 +28,8 @@ void cwiczenia_9()
 		Date974::Date today(Date974::Year(2181), Date974::Date::Month(2), 28);
 		Date974::Date tomorrow = today;
 		tomorrow.add_day(1);
-		tomorrow.add_month(5);
-		tomorrow.add_year(16);
+		tomorrow.add_month(1);
+		tomorrow.add_year(1);
 
 
 		cout << "Today is: " << today << endl;

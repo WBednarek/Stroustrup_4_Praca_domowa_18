@@ -21,8 +21,8 @@ namespace Date941
 	void init_day(Date& dd, int y, int m, int d);
 	void add_day(Date& dd);
 	bool leapyear(int year);
-	const int& lapyear_february_days();
-	const int& february_days();
+	const int& num_of_february_days_lapyear();
+	const int& num_of_february_days();
 }
 
 

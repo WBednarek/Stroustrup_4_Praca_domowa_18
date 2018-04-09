@@ -68,8 +68,8 @@ namespace Date974
 		}
 		case feb:
 		{
-			if (leapyear(year.year()) && day > lapyear_february_days()) error("error: to much days for month: February in lap year (maximimun 29)");
-			if (!leapyear(year.year()) && day > february_days()) error("error: to much days for month: February");
+			if (leapyear(year.year()) && day > num_of_february_days_lapyear()) error("error: to much days for month: February in lap year (maximimun 29)");
+			if (!leapyear(year.year()) && day > num_of_february_days()) error("error: to much days for month: February");
 			break;
 		}
 		default:
@@ -90,13 +90,13 @@ namespace Date974
 	void Date::add_day(int n)
 	{
 		if (n < 1) error("error: add positive mumber of days (more than 0)");
-		if (leapyear(y.year()) && m == feb && d == lapyear_february_days())
+		if (leapyear(y.year()) && m == feb && d == num_of_february_days_lapyear())
 		{
 			m = mar;
 			d = n;
 			return;
 		}
-		if (!leapyear(y.year()) && (d == february_days() || d == 30 || d == 31))
+		if (!leapyear(y.year()) && (d == num_of_february_days() || d == 30 || d == 31))
 		{
 			if (m != dec)
 			{
@@ -122,6 +122,11 @@ namespace Date974
 	{
 		if (n < 0) error("error: add positive mumber of months (more than 0)");
 		m = Month(((m + n) % 13) );
+		if (n > months_in_year())
+		{
+			int years = n / months_in_year();
+			add_year(years);
+		}
 
 	}
 
@@ -138,16 +143,22 @@ namespace Date974
 		return false;
 	}
 
-	const int& lapyear_february_days()
+	const int& num_of_february_days_lapyear()
 	{
 		static int lapyear_feb_days = 29;
 		return lapyear_feb_days;
 	}
 
-	const int& february_days()
+	const int& num_of_february_days()
 	{
 		static int days_in_feb = 28;
 		return days_in_feb;
+	}
+
+	const int& months_in_year()
+	{
+		const static int months = 12;
+		return months;
 	}
 
 }

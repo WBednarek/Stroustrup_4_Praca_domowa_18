@@ -21,8 +21,8 @@ namespace Date941
 		}
 		case 2:
 		{
-			if (leapyear(y) && d > lapyear_february_days()) error("error: to much days for month: February in lap year (maximimun 29)");
-			if (!leapyear(y) && d > february_days()) error("error: to much days for month: February");
+			if (leapyear(y) && d > num_of_february_days_lapyear()) error("error: to much days for month: February in lap year (maximimun 29)");
+			if (!leapyear(y) && d > num_of_february_days()) error("error: to much days for month: February");
 			break;
 		}
 		default:
@@ -42,13 +42,13 @@ namespace Date941
 
 	void add_day(Date& dd)
 	{
-		if (leapyear(dd.y) && dd.m == 2 && dd.d == lapyear_february_days())
+		if (leapyear(dd.y) && dd.m == 2 && dd.d == num_of_february_days_lapyear())
 		{
 			dd.m = 3;
 			dd.d = 1;
 			return;
 		}
-		if (!leapyear(dd.y) && (dd.d == february_days() || dd.d == 30 || dd.d == 31))
+		if (!leapyear(dd.y) && (dd.d == num_of_february_days() || dd.d == 30 || dd.d == 31))
 		{
 			if (dd.m != 12)
 			{
@@ -78,13 +78,13 @@ namespace Date941
 	}
 
 
-	const int& lapyear_february_days()
+	const int& num_of_february_days_lapyear()
 	{
 		static int lapyear_feb_days = 29;
 		return lapyear_feb_days;
 	}
 
-	const int& february_days()
+	const int& num_of_february_days()
 	{
 		static int days_in_feb = 28;
 		return days_in_feb;
