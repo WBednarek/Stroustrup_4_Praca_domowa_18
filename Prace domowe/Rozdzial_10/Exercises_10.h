@@ -6,7 +6,7 @@
 namespace Ex10
 {
 
-vector<Point_10> get_points(const string& communicate, char termination);
+vector<Point> get_points(const string& communicate, char termination);
 
 void clean_up_mess_10();
 
@@ -16,11 +16,11 @@ void cwiczenia_10();
 
 const char & termination_sign();
 
-void save_inputted_data(string filename, vector<Point_10>& input_data);
+void save_inputted_data(const string& filename, vector<Point>& input_data);
 
-vector<Point_10> read_inputted_data(string filename);
+vector<Point> read_inputted_data(const string& filename);
 
-void compare_vectors(vector<Point_10>& first, vector<Point_10>& second);
+void compare_vectors(vector<Point>& first, vector<Point>& second);
 
 
 }
