@@ -31,7 +31,7 @@
 int main()
 {
 	system("chcp 1250");
-	cwiczenia_9();
+	Ex10::cwiczenia_10();
 	
 
 
