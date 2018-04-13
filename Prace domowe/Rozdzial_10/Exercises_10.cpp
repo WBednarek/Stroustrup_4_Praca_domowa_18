@@ -3,9 +3,6 @@
 
 namespace Ex10
 {
-	
-	
-
 	//Stroustrup PPP chaper 10.11.2 way
 	istream& operator >> (istream& is, Point& p)
 	{

@@ -18,24 +18,35 @@
 #include "Rozdzial_7\cwiczenia_7.h"
 #include "Rozdzial_7\Praca_domowa_4\Rodzial_7_Praca_domowa_4.h"
 #include "Rozdzial_8\use.h"
+#include "Rozdzial_9\MyDate.h"
+#include "Rozdzial_10\Exercises_10.h"
 
 */
 
 #include "stdafx.h"
 #include "../../../../std_lib_facilities_v2.h"
-#include "Rozdzial_9\MyDate.h"
-#include "Rozdzial_10\Exercises_10.h"
+#include "Rozdzial_11\Test_output.h"
 
 
 
 int main()
 {
 	system("chcp 1250");
-	Ex10::cwiczenia_10();
-	
+	Ex11::cwiczenia_11();
 
+
+	system("pause");
+
+	return 0;
 
 	/**
+	Rozdzia³ 12
+
+	Rozdia³ 11
+
+	Rozdzia³ 10
+	Ex10::cwiczenia_10();
+
 	Rodzia³ 9
 	cwiczenia_9();
 
@@ -71,9 +82,7 @@ int main()
 	//praca_domowa_20();
 	 //praca_domowa_21();
 
-	system("pause");
 
-    return 0;
 }
 
 
