@@ -69,16 +69,16 @@ namespace Ex11
 
 	void exercise_10()
 	{
-		string names[] = { "Jan", "Alicja", "Maciek", "Tomasz", "Patryk" };
+		string names[] = { "Jan", "Alicja", "Maciek", "Tomasz", "Patryk", "Adrian" };
 		vector<string> names_vec(names, names + sizeof(names) / sizeof(names[0]));
 
-		string surnames[] = { "Omega", "Curus", "Tomaszewski", "Jarowski", "Vege" };
+		string surnames[] = { "Omega", "Curus", "Tomaszewski", "Jarowski", "Vege", "Marcinowski" };
 		vector<string> surnames_vec(surnames, surnames + sizeof(surnames) / sizeof(surnames[0]));
 
-		string phone_numbers[] = { "56564155", "5435342", "2463212", "52315", "63246" };
+		string phone_numbers[] = { "56564155", "5435342", "2463212", "52315", "63246", "+48 6548956794" };
 		vector<string> phone_numbers_vec(phone_numbers, phone_numbers + sizeof(phone_numbers) / sizeof(phone_numbers[0]));
 
-		string emails[] = { "wgwegwf@wo.pl", "Alicj@wo.pl", "Maciek@wo.pl", "Tomasz@wo.pl", "Patryk@wo.pl" };
+		string emails[] = { "wgwegwf@wo.pl", "Alicj@wo.pl", "Maciek@wo.pl", "Tomasz@wo.pl", "Patryk@wo.pl", "adrian@wo.pl" };
 		vector<string> emails_vec(emails, emails + sizeof(emails) / sizeof(emails[0]));
 
 
@@ -89,6 +89,7 @@ namespace Ex11
 
 	void display_table(const vector<string>& names_vec, const vector<string>& surnames_vec, const  vector<string>& phone_numbers_vec,const vector<string>& emails_vec)
 	{
+		const int table_width = 15;
 		int size1, size2, size3, size4;
 		size1 = names_vec.size();
 		size2 = surnames_vec.size();
@@ -98,12 +99,12 @@ namespace Ex11
 		{
 			error("Wrong sizes of inputet vectors in order to make an table");
 		}
-		cout  << "|" << left<< setw(14) << "Name" << "|" << setw(14) << "Surname" << "|" << setw(14) <<"Phone Number" << "|" << setw(14) << "Email" <<"|" << endl;
+		cout  << "|" << left<< setw(table_width) << "Name" << "|" << setw(table_width) << "Surname" << "|" << setw(table_width) <<"Phone Number" << "|" << setw(table_width) << "Email" <<"|" << endl;
 
 
 		for (int i = 0; i < names_vec.size(); ++i)
 		{
-			cout << "|" << left << setw(14) << names_vec[i] << "|" << setw(14) << surnames_vec[i] << "|" << setw(14) << phone_numbers_vec[i] << "|" << setw(14) << emails_vec[i] << "|" << endl;
+			cout << "|" << left << setw(table_width) << names_vec[i] << "|" << setw(table_width) << surnames_vec[i] << "|" << setw(table_width) << phone_numbers_vec[i] << "|" << setw(table_width) << emails_vec[i] << "|" << endl;
 		}
 
 	}
