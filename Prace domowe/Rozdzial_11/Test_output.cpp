@@ -98,12 +98,12 @@ namespace Ex11
 		{
 			error("Wrong sizes of inputet vectors in order to make an table");
 		}
-		cout  << "|" << setw(14) << "Name" << "|" << setw(14) << "Surname" << "|" << setw(14) <<"Phone Number" << "|" << setw(14) << "Email|" << endl;
+		cout  << "|" << left<< setw(14) << "Name" << "|" << setw(14) << "Surname" << "|" << setw(14) <<"Phone Number" << "|" << setw(14) << "Email" <<"|" << endl;
 
 
 		for (int i = 0; i < names_vec.size(); ++i)
 		{
-			cout  << "|" << setw(14) << names_vec[i]  << "|" << setw(14) << surnames_vec[i] << "|" << setw(14) << phone_numbers_vec[i] << "|" << setw(14) << emails_vec[i]  <<"|" << endl;
+			cout << "|" << left << setw(14) << names_vec[i] << "|" << setw(14) << surnames_vec[i] << "|" << setw(14) << phone_numbers_vec[i] << "|" << setw(14) << emails_vec[i] << "|" << endl;
 		}
 
 	}
