@@ -87,7 +87,7 @@ namespace Ex11
 
 	}
 
-	void display_table( vector<string>& names_vec, vector<string>& surnames_vec,  vector<string>& phone_numbers_vec,  vector<string>& emails_vec)
+	void display_table(const vector<string>& names_vec, const vector<string>& surnames_vec, const  vector<string>& phone_numbers_vec,const vector<string>& emails_vec)
 	{
 		int size1, size2, size3, size4;
 		size1 = names_vec.size();
