@@ -20,29 +20,32 @@
 #include "Rozdzial_8\use.h"
 #include "Rozdzial_9\MyDate.h"
 #include "Rozdzial_10\Exercises_10.h"
-
+#include "Rozdzial_11\Test_output.h"
 */
 
 #include "stdafx.h"
 #include "../../../../std_lib_facilities_v2.h"
-#include "Rozdzial_11\Test_output.h"
+#include "Rozdzial_12\Exercises_12.h"
 
 
 
 int main()
 {
 	system("chcp 1250");
-	Ex11::cwiczenia_11();
+	
+	Ex12::cwiczenia_12();
 
 
 	system("pause");
-
 	return 0;
 
 	/**
 	Rozdzia³ 12
+	Ex12::cwiczenia_12();
+
 
 	Rozdia³ 11
+	Ex11::cwiczenia_11();
 
 	Rozdzia³ 10
 	Ex10::cwiczenia_10();
