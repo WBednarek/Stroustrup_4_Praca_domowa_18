@@ -24,8 +24,9 @@
 */
 
 #include "stdafx.h"
-#include "../../../../std_lib_facilities_v2.h"
+#include "std_lib_facilities_v2.h"
 #include "Rozdzial_12\Exercises_12.h"
+#include "Rozdzia³_17/Exercises_17.h"
 
 
 
@@ -33,13 +34,15 @@ int main()
 {
 	system("chcp 1250");
 	
-	Ex12::cwiczenia_12();
+
+	Ex17::cwiczenia_17();
 
 
 	system("pause");
 	return 0;
 
 	/**
+
 	Rozdzia³ 12
 	Ex12::cwiczenia_12();
 

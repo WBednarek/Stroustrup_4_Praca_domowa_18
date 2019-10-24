@@ -99,7 +99,7 @@ namespace Ex10
 				//char c as qual to ',' to not break the loop and add the last pair to the vector.
 			}
 
-			if (ch != ',')
+			if (c != ',')
 			{
 				is.unget();
 				is.clear(ios_base::failbit);
