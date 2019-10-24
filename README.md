@@ -11,3 +11,5 @@ In general the next each “../” reaches the next parent directory above.
 
 
 P.S. if std_lib_facilities_v2.h was just inside Rozdzial_6 directory obviously then you would #include "std_lib_facilities_v2.h".
+
+P.S. 2 If you have stdafx.h error just include this file from .sln view in your .h and .cpp files using #include "stdafx.h". Despite Visiual Studio prompts do not include stdafx.h from diffrent folder like #include "../stdafx.h". For some reason it has to be  #include "stdafx.h" in every file.
