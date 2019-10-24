@@ -34,14 +34,17 @@ int main()
 {
 	system("chcp 1250");
 	
-
-	Ex17::cwiczenia_17();
+	Ex17::cwiczenia_17_part2();
+	
 
 
 	system("pause");
 	return 0;
 
 	/**
+	Rodzia³ 17
+	Ex17::cwiczenia_17_part1();
+
 
 	Rozdzia³ 12
 	Ex12::cwiczenia_12();
