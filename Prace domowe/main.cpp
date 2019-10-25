@@ -27,22 +27,34 @@
 #include "std_lib_facilities_v2.h"
 #include "Rozdzial_12\Exercises_12.h"
 #include "Rozdzia³_17/Exercises_17.h"
+#include "Rozdzia³_17/Homework_17.h"
 
 
 
 int main()
 {
-	system("chcp 1250");
-	
-	Ex17::cwiczenia_17_part2();
-	
+	try {
+		system("chcp 1250");
+		Hw17::homework_17();
+		system("pause");
+		
+	}
 
-
-	system("pause");
+	catch (exception& e) {
+		cerr << "exception: " << e.what() << endl;
+		return 1; 
+	}
+	catch (...) {
+		cerr << "exception\n";
+		return 2; 
+	}
 	return 0;
+
+	
 
 	/**
 	Rodzia³ 17
+	Ex17::cwiczenia_17_part2();
 	Ex17::cwiczenia_17_part1();
 
 
