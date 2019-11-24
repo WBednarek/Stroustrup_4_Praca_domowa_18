@@ -153,6 +153,8 @@
     <ClInclude Include="Rozdzial_12\Exercises_12.h" />
     <ClInclude Include="Rozdzial_10\Point_10.h" />
     <ClInclude Include="Rozdzial_10\Exercises_10.h" />
+    <ClInclude Include="Rozdzial_18\Exercises_18.h" />
+    <ClInclude Include="Rozdzial_18\Homework_18.h" />
     <ClInclude Include="Rozdzial_9\Date974.h" />
     <ClInclude Include="Rozdzial_9\Date971.h" />
     <ClInclude Include="Rozdzial_9\Date943.h" />
@@ -195,6 +197,8 @@
     <ClCompile Include="Rozdzial_12\Exercises_12.cpp" />
     <ClCompile Include="Rozdzial_10\Point_10.cpp" />
     <ClCompile Include="Rozdzial_10\Exercises_10.cpp" />
+    <ClCompile Include="Rozdzial_18\Exercises_18.cpp" />
+    <ClCompile Include="Rozdzial_18\Homework_18.cpp" />
     <ClCompile Include="Rozdzial_9\Date974.cpp" />
     <ClCompile Include="Rozdzial_9\Date971.cpp" />
     <ClCompile Include="Rozdzial_9\Date943.cpp" />
