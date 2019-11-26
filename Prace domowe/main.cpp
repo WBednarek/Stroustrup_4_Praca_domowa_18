@@ -36,7 +36,7 @@ int main()
 {
 	try {
 		system("chcp 1250");
-		Ex18::drill_2();
+		Ex18::exercise_1();
 		system("pause");
 		
 	}

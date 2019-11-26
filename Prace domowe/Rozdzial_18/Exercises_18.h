@@ -55,6 +55,9 @@ namespace Ex18
 
 	void drill_1();
 	void drill_2();
+	void exercise_1();
+	void f(int tab[], int size);
+	void copy(int first[], const int second[]);
 }
 
 namespace vec

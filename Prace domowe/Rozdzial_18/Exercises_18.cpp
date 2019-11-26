@@ -55,7 +55,65 @@ namespace Ex18
 		cout << v[1] << endl;
 	}
 
+	
 
+	void copy(int toCopy[], int second[], int size)
+	{
+		/*int size1 = sizeof(toCopy) / sizeof(toCopy[0]);
+		int size2 = sizeof(second) / sizeof(second[0]);
+		if (size1 != size2) error("Sizes of arrays mismatch!");*/
+		for (int i = 0; i < size; ++i)
+		{
+			toCopy[i] = second[i];
+		}
+	}
+
+	int ga[] = { 1,2,4,8,16,32,64,128,256,512};
+
+	void print_array(int arr[], int size)
+	{
+	
+		for (int i = 0; i < size-1; ++i)
+		{
+			cout << arr[i] << ", ";
+		}
+		cout << arr[size-1] << endl;
+	}
+
+	void f(int tab[], int size)
+	{
+		
+		int la[10];
+		copy(la, tab, size);
+		print_array(la, size);
+		int* p = new int[size];
+		copy(p, tab, size);
+		print_array(p, size);
+		delete[] p;
+	}
+
+	void fill_array_with_fct(int to_fill[], int n)
+	{
+		if (n > 19) error("Factorial is too big");
+		int fact = 1;
+		to_fill[0] = fact;
+		for (int i = 1; i < n; ++i)
+		{
+			fact *= i;
+			to_fill[i] = fact;
+		}
+	}
+
+	void exercise_1()
+	{
+		int size = 10;
+		//f(ga, size);
+		int aa[10];
+		fill_array_with_fct(aa, 10);
+		f(aa, size);
+	}
+
+	vector<int> gv = { 1,2,4,8,16,32,64,128,256,512 };
 
 
 	/*
