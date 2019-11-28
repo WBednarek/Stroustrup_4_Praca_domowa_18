@@ -104,17 +104,61 @@ namespace Ex18
 		}
 	}
 
-	void exercise_1()
+	vector<int> fill_vector_with_fct(int n)
 	{
-		int size = 10;
-		//f(ga, size);
-		int aa[10];
-		fill_array_with_fct(aa, 10);
-		f(aa, size);
+		if (n > 19) error("Factorial is too big");
+		vector<int> to_fill;
+		int fact = 1;
+		to_fill.push_back(fact);
+		for (int i = 1; i < n; ++i)
+		{
+			fact *= i;
+			to_fill.push_back(fact);
+		}
+		return to_fill;
 	}
+	
 
 	vector<int> gv = { 1,2,4,8,16,32,64,128,256,512 };
 
+
+	ostream& operator<<(ostream& os, vector<int>& vec)
+	{
+		for (int i = 0; i < vec.size()-1; ++i)
+		{
+			os << vec[i] << ", ";
+		}
+		os << vec[vec.size() - 1];
+		return os;
+	}
+
+	void fv(vector<int> vec)
+	{
+		vector<int> lv(vec.size());
+		lv = gv;
+		cout << lv << endl;
+		vector<int> lv2(vec);
+		cout << lv2 << endl;
+	}
+
+
+	void exercise_1()
+	{
+		//-----------------
+		//C-style array case
+
+		//int size = 10;
+		//f(ga, size);
+		//int aa[10];
+		//fill_array_with_fct(aa, 10);
+		//f(aa, size);
+
+		//-----------------
+		//std::vector case
+		//fv(gv);
+		vector<int> vv = fill_vector_with_fct(10);
+		fv(vv);
+	}
 
 	/*
 	Example output for

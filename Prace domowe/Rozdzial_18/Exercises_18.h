@@ -58,6 +58,7 @@ namespace Ex18
 	void exercise_1();
 	void f(int tab[], int size);
 	void copy(int first[], const int second[]);
+	void fv(vector<int> vec);
 }
 
 namespace vec
