@@ -29,6 +29,7 @@
 #include "Rozdzia³_17/Exercises_17.h"
 #include "Rozdzia³_17/Homework_17.h"
 #include "Rozdzial_18/Exercises_18.h"
+#include "Rozdzial_18/Homework_18.h"
 
 
 
@@ -36,7 +37,7 @@ int main()
 {
 	try {
 		system("chcp 1250");
-		Ex18::exercise_1();
+		Hw18::exercise_1();
 		system("pause");
 		
 	}
@@ -54,6 +55,9 @@ int main()
 	
 
 	/**
+	Rozdzial 18
+	Ex18::exercise_1();
+
 	Rodzia³ 17
 	Hw17::homework_17();
 	Ex17::cwiczenia_17_part2();

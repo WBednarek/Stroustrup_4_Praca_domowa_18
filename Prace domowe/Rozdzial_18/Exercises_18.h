@@ -50,8 +50,6 @@ namespace Ex18
 		X b;
 	};
 
-	
-
 
 	void drill_1();
 	void drill_2();
@@ -59,6 +57,8 @@ namespace Ex18
 	void f(int tab[], int size);
 	void copy(int first[], const int second[]);
 	void fv(vector<int> vec);
+	void fill_array_with_fct(int to_fill[], int n);
+	vector<int> fill_vector_with_fct(int n);
 }
 
 namespace vec
