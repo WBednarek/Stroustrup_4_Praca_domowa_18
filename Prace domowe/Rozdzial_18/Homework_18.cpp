@@ -28,7 +28,7 @@ namespace Hw18
 	char* strdup(const char* ch)
 	{
 		int size = get_size(ch);
-		char* to_fill = new char[size+1]; // WARNING! DO NOT RETURN POINTER TO THE LOCAL VARIABLE
+		char* to_fill = new char[size+1]; // WARNING! DO NOT RETURN POINTER TO THE LOCAL VARIABLE, but do I have a choice here?
 		int n = 0;
 		while (*ch)
 		{
